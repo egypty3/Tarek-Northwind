@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutReports.cshtml";
+    ViewBag.Title = "Reports";
+}
+@model List<NorthwindWeb.ViewModels.ReportViewModel>
+
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav collapse navbar-collapse">
+        <ul class="nav">
+            @if (Model.Any())
+            {
+                foreach (var report in Model)
+                {
+                    <li>
+                        <a class="reps" href=@report.Link target="reps">@(report.Filename)</a>
+                    </li>
+                }
+            }
+            else
+            {
+                <li>
+                    @Html.ActionLink("There are no reports in this folder","Home","Dashboard")
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<div class="collapse navbar-collapse navbar-ex1-collapse  navbar-right" role="navigation">
+
+    <ul class="nav navbar-nav">
+
+        @Html.Partial("_LoginPartialDashBoard")
+
+    </ul>
+
+</div>

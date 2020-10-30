@@ -1,0 +1,147 @@
+﻿@model NorthwindWeb.Models.Orders
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+<h2>Add</h2>
+    <hr />
+    <ol class="breadcrumb">
+        <li>
+            @Html.ActionLink("Dashboard","Home","Dashboard")
+        </li>
+        <li>
+            @Html.ActionLink("Orders", "Index", "Orders")
+        </li>
+        <li class="active">Add</li>
+    </ol>
+
+    @using (Html.BeginForm("Create", "Orders", FormMethod.Post, htmlAttributes: new { @class = "ord-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Orders</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Company Name</strong></span>
+                <div class="col-md-10">
+                    @Html.DropDownList("CustomerID", (IEnumerable<SelectListItem>)ViewBag.CustomerID, htmlAttributes: new { @class = "form" })
+                    @Html.ValidationMessageFor(model => model.CustomerID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Employee Name</strong></span>
+                <div class="col-md-10">
+                    @Html.DropDownList("EmployeeID", (IEnumerable<SelectListItem>)ViewBag.EmployeeID, htmlAttributes: new { @class = "form" })
+                    @Html.ValidationMessageFor(model => model.EmployeeID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Order date</strong></span>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.OrderDate, new { required = "required" })
+                    @Html.ValidationMessageFor(model => model.OrderDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Required Date</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RequiredDate)
+                    @Html.ValidationMessageFor(model => model.RequiredDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Shipped Date</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShippedDate)
+                    @Html.ValidationMessageFor(model => model.ShippedDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Shipper</strong></span>
+                <div class="col-md-10">
+                    @Html.DropDownList("ShipVia", (IEnumerable<SelectListItem>)ViewBag.ShipVia, htmlAttributes: new { @class = "form" })
+                    @Html.ValidationMessageFor(model => model.ShipVia)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Freight</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Freight)
+                    @Html.ValidationMessageFor(model => model.Freight)
+                </div>
+            </div>
+
+            <div class="form-group">                
+                <span class="control-label col-md-2 bold"><strong>Ship Name</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipName)
+                    @Html.ValidationMessageFor(model => model.ShipName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Adresa</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipAddress)
+                    @Html.ValidationMessageFor(model => model.ShipAddress)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Ship City</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipCity)
+                    @Html.ValidationMessageFor(model => model.ShipCity)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Ship Region</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipRegion)
+                    @Html.ValidationMessageFor(model => model.ShipRegion)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Ship Postal Code</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipPostalCode)
+                    @Html.ValidationMessageFor(model => model.ShipPostalCode)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Ship Country</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipCountry)
+                    @Html.ValidationMessageFor(model => model.ShipCountry)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+       @Html.ActionLink("Back to the list", "Index", "Orders", new { @class = "btn btn-default" })       
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

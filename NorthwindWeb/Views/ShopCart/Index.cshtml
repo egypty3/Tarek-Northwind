@@ -1,0 +1,53 @@
+@model List<NorthwindWeb.Models.Shippers>
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container whiterounded coloronwhite">
+    <h2>Shopping cart</h2><hr />
+
+    <table id="ShopCartTable" class="cell-border hover order-column coloronwhite">
+        <thead>
+            <tr>
+                <th>
+                    Product Name
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Total price
+                </th>
+                <th>
+                    Remove
+                </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+
+    </table>
+    <br />
+    <div class="container col-xs-9">
+        <strong><span class="coloronwhite pull-right">Total order = <span id="totalComanda" class="coloronwhite"></span></span></strong>
+    </div>
+
+    @using (Html.BeginForm("GetShipVia", "ShopCart", FormMethod.Post, htmlAttributes: new { @class = "ord-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form">
+            <strong class="coloronwhite">Select Courier</strong><br />
+           
+            @Html.DropDownList("ShipVia", (IEnumerable<SelectListItem>)ViewBag.ShipVia, htmlAttributes: new { @class = "form"})
+           
+            <br />
+            <br />
+            <input type="submit" value="Send the order" class="btn btn-default" />
+
+        </div>
+        <br />
+                }
+</div>

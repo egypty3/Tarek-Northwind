@@ -1,0 +1,153 @@
+﻿@model NorthwindWeb.Models.Orders
+
+@{
+    ViewBag.Title = "Modifica";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+
+    <h2>Modifica</h2>
+    <hr />
+    <ol class="breadcrumb">
+        <li>
+            @Html.ActionLink("Dashboard", "Home", "Dashboard")
+        </li>
+        <li>
+            @Html.ActionLink("Comenzi", "Index", "Orders")
+        </li>
+        <li>
+            @Html.ActionLink("Detalii","Details","Orders", new { id = Model.OrderID },null)
+        </li>
+        <li class="active">Modifica</li>
+    </ol>
+
+    @using (Html.BeginForm("Edit", "Orders", FormMethod.Post, htmlAttributes: new { @class = "ord-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Comenzi</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.OrderID)
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Nume Companie</strong></span>
+                <div class="col-md-10">
+                    @Html.DropDownList("CustomerID", (IEnumerable<SelectListItem>)ViewBag.CustomerID, htmlAttributes: new { @class = "form" })
+                    @Html.ValidationMessageFor(model => model.CustomerID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Nume Angajat</strong></span>
+                <div class="col-md-10">
+                    @Html.DropDownList("EmployeeID", (IEnumerable<SelectListItem>)ViewBag.EmployeeID, htmlAttributes: new { @class = "form" })
+                    @Html.ValidationMessageFor(model => model.EmployeeID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Data comanda</strong></span>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.OrderDate,new { required="required" })
+                    @Html.ValidationMessageFor(model => model.OrderDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Data ceruta</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RequiredDate)
+                    @Html.ValidationMessageFor(model => model.RequiredDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Data livrarii</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShippedDate)
+                    @Html.ValidationMessageFor(model => model.ShippedDate)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Nume Expeditor</strong></span>
+                <div class="col-md-10">
+                    @Html.DropDownList("ShipVia", (IEnumerable<SelectListItem>)ViewBag.ShipVia, htmlAttributes: new { @class = "form" })
+                    @Html.ValidationMessageFor(model => model.ShipVia)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Incarcatura</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Freight)
+                    @Html.ValidationMessageFor(model => model.Freight)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Expeditor</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipName)
+                    @Html.ValidationMessageFor(model => model.ShipName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Adresa</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipAddress)
+                    @Html.ValidationMessageFor(model => model.ShipAddress)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Oras</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipCity)
+                    @Html.ValidationMessageFor(model => model.ShipCity)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Regiune</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipRegion)
+                    @Html.ValidationMessageFor(model => model.ShipRegion)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Cod postal</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipPostalCode)
+                    @Html.ValidationMessageFor(model => model.ShipPostalCode)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <span class="control-label col-md-2 bold"><strong>Tara</strong></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ShipCountry)
+                    @Html.ValidationMessageFor(model => model.ShipCountry)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Salveaza" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+      @Html.ActionLink("Inapoi la lista", "Index", "Orders", new { @class = "btn btn-default" })
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

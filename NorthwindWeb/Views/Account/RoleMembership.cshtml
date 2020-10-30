@@ -1,0 +1,112 @@
+﻿@model NorthwindWeb.ViewModels.RoleInfoViewModel 
+
+
+@{
+    //CoreBankingManager.Controllers.AccountController ctrl = new CoreBankingManager.Controllers.AccountController();// put this to rapid navigation to controller 
+    //ctrl.RoleMembership();
+    ViewBag.Title = "Member management for the role ";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title <font color=red>@Model.Name </font>  .</h1>
+    <h2> </h2>
+</hgroup>
+<ol class="breadcrumb">
+    <li>
+        @Html.ActionLink("Dashboard", "Home", "Dashboard")
+    </li>
+    <li>
+        @Html.ActionLink("Roles", "RolesIndex", "Account")
+    </li>
+    <li class="active">Membrii</li>
+</ol>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+<fieldset>
+
+    Add user to role @Model.Name
+</fieldset>
+
+    @*{
+        @Html.RenderAction("AddUsersToRole", new { roleName = Model.Name });
+}*@ 
+    <fieldset >
+        <legend> Add users </legend>
+      <div class="editor-field" >
+        @Html.DropDownList("UserList", 
+       ViewData["UsersNotInRole"] as IEnumerable<System.Web.Mvc.SelectListItem>,
+       "Choose a user", new { @style = "font-size:150%" }) 
+        
+      </div>
+        <br />
+        <input name="submit" id="submit" type="submit" value="Add" class="btn btn-default" />
+        @Html.ActionLink("Back", "RolesIndex", null, new { @class = "btn btn-default" })
+    </fieldset>
+}
+    <fieldset>
+   <br />
+   
+       @*{
+           @Html.RenderAction("UsersInRole", new { roleName = Model.Name });
+}*@
+      @*<table id="UsersInRole" class="table">
+    <thead>
+            <tr>
+                <th>
+                    Stergere
+                </th>
+                <th>
+                    Utilizator
+                </th>
+            </tr>
+    </thead>*@
+        @*@foreach (var item in ViewData["UsersInRole"] as IEnumerable<System.Web.Mvc.SelectListItem>)
+        {  
+            <tr>
+                <td>
+                   
+                        @Html.ActionLink("Sterge", "DeleteFromRole", new { userName = item.Value, roleName = Request["roleName"] }
+                    ,new { @class= "btn btn-default" , onclick = "if (!confirm('Doriti sa stergeti ?')) return false;" })
+                    
+</td>
+                <td>
+                    @item.Value  
+                </td>
+            </tr>  
+        }*@  
+
+        @*</table>*@
+      
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>
+                    Users with the role @Model.Name
+                </h4>
+            </div>
+            <div class="panel-body">
+                <table id="UsersInRole" class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Clear
+                            </th>
+                            <th>
+                                User
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </fieldset>
+
+

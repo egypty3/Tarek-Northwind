@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Suppliers";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<h2>Suppliers</h2>
+<hr />
+<ol class="breadcrumb">
+    <li>
+        @Html.ActionLink("Dashboard", "Home", "Dashboard")
+    </li>
+
+    <li class="active">Suppliers</li>
+</ol>
+<hr />
+<br />
+
+   @Html.ActionLink("Add Supplier", "Create", null, new { @class = "btn btn-default" })
+
+
+<br/>
+<br />
+<br />
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>
+            Suppliers
+        </h4>
+    </div>
+    <div class="panel-body">
+        <table id="Suppliers" class="cell-border hover order-column">
+            <thead>
+                <tr>
+                    <th>
+                        Company Name
+                    </th>
+                    <th>
+                        Contact Name
+                    </th>
+                    <th>
+                        Contact Title
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th>
+                        Phone
+                    </th>
+                    <th>
+                        Remove
+                    </th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+
+        </table>
+</div>
+</div>

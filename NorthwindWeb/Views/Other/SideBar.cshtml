@@ -1,0 +1,101 @@
+﻿@model NorthwindWeb.ViewModels.ViewProductCategoryS
+@{
+    ViewBag.Title = "Sidebar Page";
+}
+
+
+<div class="container">
+
+    
+    <div class="row">
+        <h1 class="page-header">
+            Back-up insurance
+
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Home", "Index", "Home")
+            </li>
+            <li class="active">Back-up insurance</li>
+        </ol>
+        <div class="col-md-3 col-sm-4 sidebar">
+
+
+            <ul class="nav nav-stacked nav-pills">
+
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li>
+                    @Html.ActionLink("About us", "Index", "About")
+                </li>
+                <li>
+                    @Html.ActionLink("Services", "Index", "Services")
+                   
+                </li>
+                <li>
+                    @Html.ActionLink("Contact", "Index", "Contact")
+                </li>
+
+
+            
+
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Online shop
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li> @Html.ActionLink("Promotions", "Products", "Products")</li>
+                        <li>@Html.ActionLink("Telephones", "Products", "Products", new { category = "Smartphone" }, null)</li>                  
+                    </ul>
+                </li>
+
+              
+                
+
+
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Assistance
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li> @Html.ActionLink("Questions about services", "Faq", "Other")</li>
+                        <li> @Html.ActionLink("I'm a new customer", "Register", "Account")</li>
+                        <li><a href="mailto:cineva@exemplu.com?subject=Nelamuriri">Contact Us</a></li>
+
+                    </ul>
+                </li>
+                </ul>
+
+
+
+</div>
+        <div class="col-md-9 col-sm-8 imagine">
+
+            <img src="~/images/alt2.png" class="right" />
+            <p>
+                We are waiting for you in the Northwind Phone store with a complex data transfer solution and
+                problem identification, created to help you enjoy your phone 100%.
+            </p>
+            <p>
+                Let's tell you what he knows how to do!
+            </p>
+
+            <p>Fast and secure content transfer</p>
+
+            <p>
+                You got a new phone and you want to have all the pictures, videos,
+                contacts and other data on your old phone?
+                You can rely on Content Transfer!
+            </p>
+           
+            
+             </div>
+    </div>
+    <!-- /.row -->
+</div>
+
+
+<span class="arrow-down"></span>

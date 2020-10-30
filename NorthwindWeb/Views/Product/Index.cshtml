@@ -1,0 +1,73 @@
+﻿@{ ViewBag.Title = "Produse";
+                Layout = "~/Views/Shared/_LayoutDashboard.cshtml"; }
+<div class="row">
+    <div class="col-lg-12">
+
+        <h2>Products</h2>
+        <hr />
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Dashboard", "Home", "Dashboard")
+            </li>
+            @if (!string.IsNullOrEmpty(ViewBag.category))
+            {
+<li class="active"><a href=@Url.Action("Index", "Product")>Products</a></li>
+                <li>@ViewBag.category</li> }
+                            else
+                            {
+                <li class="active">Products</li>            }
+        </ol>
+        <hr />
+        <br />
+
+        <div>
+            @Html.ActionLink("Add Product", "Create", new { category = ViewBag.category }, new { @class = "btn btn-default", id = "createProductButton" })
+        </div>
+
+    </div>
+
+</div>
+<br />
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>
+                    Products list
+                </h4>
+            </div>
+            <div class="panel-body">
+                <table id="Product" class="cell-border hover order-column">
+                    <thead>
+                        <tr>
+                            <th>
+                                Product Name
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                In stock
+                            </th>
+                            <th>
+                                Units On Orders
+                            </th>
+                            <th>
+                                Stock limit
+                            </th>
+                            <th>
+                                Unavailable
+                            </th>
+                            <th>
+                                Remove
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="dialog" title="Delete">
+            </div>
+        </div>
+    </div>
+</div>

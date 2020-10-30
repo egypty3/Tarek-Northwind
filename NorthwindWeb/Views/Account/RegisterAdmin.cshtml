@@ -1,0 +1,76 @@
+﻿@model NorthwindWeb.ViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Create new user";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<h2>@ViewBag.Title.</h2>
+
+<ol class="breadcrumb">
+    <li>
+        @Html.ActionLink("Dashboard", "Home", "Dashboard")
+    </li>
+    <li>
+        @Html.ActionLink("Users", "Index", "Account")
+    </li>
+    <li class="active">New user</li>
+</ol>
+<hr />
+<div class="row">
+
+    <div class="col-md-offset-2 col-md-8">
+        @using (Html.BeginForm("RegisterAdmin", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+        <h4>Create a new account.</h4>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserName, new { @class = "col-md-3 control-label" })
+                <div class="col-md-5">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+                <div class="col-md-5">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+                <div class="col-md-5">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-3 control-label" })
+                <div class="col-md-5">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="from-group">
+                <span class="control-label col-md-3 bold"><strong>Picture</strong></span>
+                <div class="col-md-9">
+                    <input type="file" id="filechooser" accept="image/*" name="UserImage">
+                </div>
+            </div>
+            <br /><br />
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-5">
+                    <input type="submit" class="btn btn-default" value="Register" />
+                    @Html.ActionLink("Back", "Index", "Account", new { @class = "btn btn-default" })
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="col-md-2">
+
+    </div>
+</div>
+
+

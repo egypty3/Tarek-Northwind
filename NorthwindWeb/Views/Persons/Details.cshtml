@@ -1,0 +1,42 @@
+﻿@model NorthwindWeb.Models.Persons
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Persons</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)<br />
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)<br />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)<br />
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)<br />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)<br />
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)<br />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

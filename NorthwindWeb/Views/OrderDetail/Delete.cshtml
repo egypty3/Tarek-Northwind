@@ -1,0 +1,83 @@
+﻿@model NorthwindWeb.Models.Order_Details
+
+@{
+    ViewBag.Title = "Sterge";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+
+    <h2>Sterge</h2>
+    <hr />
+    <ol class="breadcrumb">
+        <li>
+            @Html.ActionLink("Dashboard", "Home", "Dashboard")
+        </li>
+        <li>
+            @Html.ActionLink("Comenzi", "Index", "Orders")
+        </li>
+        <li>
+            @Html.ActionLink("Detalii", "Details", "Orders", new { id = Model.OrderID }, null)
+        </li>
+        <li class="active">Sterge</li>
+    </ol>
+
+    <h3>Sigur doresti sa stergi?</h3>
+    <div>
+        <h4>Detalii comanda</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Id client
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Order.CustomerID)<br />
+            </dd>
+
+            <dt>
+                Nume produs
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Product.ProductName)<br />
+            </dd>
+
+            <dt>
+                Pret unitar
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UnitPrice)<br />
+            </dd>
+
+            <dt>
+                Cantitate
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)<br />
+            </dd>
+
+            <dt>
+                Discount
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Discount)<br />
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">     
+                @Html.ActionLink("Inapoi", "Details", "Orders", new { id = Model.OrderID }, new { @class = "btn btn-default" }) | 
+                <input type="submit" value="Sterge" class="btn btn-default" /> 
+               
+            </div>
+        }
+    </div>
+

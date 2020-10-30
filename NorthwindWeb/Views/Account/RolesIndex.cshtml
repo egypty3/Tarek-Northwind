@@ -1,0 +1,55 @@
+﻿@model IEnumerable<NorthwindWeb.ViewModels.RoleInfoViewModel>
+
+@{
+    ViewBag.Title = "List of roles";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<ol class="breadcrumb">
+
+    <li>
+        @Html.ActionLink("Dashboard", "Home", "Dashboard")
+    </li>
+
+    <li class="active">Roles</li>
+</ol>
+<hr />
+
+<div>
+    @*<button class="btn btn-default crudFormButtonLeftOfSearch">@Html.ActionLink("Rol nou", "CreateRole",null, htmlAttributes: new { style = "text-decoration:none; color:#333" })</button>*@
+    @Html.ActionLink("New Role", "CreateRole", null, new { @class= "btn btn-default" })
+</div>
+<br />
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>
+            Roles
+        </h4>
+    </div>
+    <div class="panel-body">
+        <table id="RolesTable" class="cell-border hover order-column">
+            <thead>
+                <tr>
+                    <th>
+                        Delete
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Members in Role
+                    </th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+
+        </table>
+
+    </div>
+</div>

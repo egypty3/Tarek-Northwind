@@ -1,0 +1,99 @@
+﻿@model IEnumerable<NorthwindWeb.ViewModels.UserInfoViewModel>
+
+@{
+    ViewBag.Title = "User list";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+
+
+
+<ol class="breadcrumb">
+
+    <li>
+        @Html.ActionLink("Dashboard", "Home", "Dashboard")
+    </li>
+
+    <li class="active">Users</li>
+</ol>
+<hr />
+<div>
+   @Html.ActionLink("New user", "RegisterAdmin", null, htmlAttributes: new { @class="btn btn-default" })
+
+</div>
+
+
+<br />
+@if (!String.IsNullOrEmpty(ViewBag.Status))
+{
+    <h1>@ViewBag.Status</h1>
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>
+                    Users
+                </h4>
+            </div>
+            <div class="panel-body">
+                <table id="UsersTable" class="cell-border hover order-column">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Image</th>
+                            <th>
+                                UserName
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Last Active DateTime
+                            </th>
+                            <th>
+                                Is Online
+                            </th>
+                            <th>
+                                Remove
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    @*@foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink("Manage", "ChangeUser", new { userName = item.UserName }, new { onclick = "if (!confirm('Sunteti sigur ca doriti sa-l modificati pe ' + item.UserName'?')) return false;" })
+                                </td>
+                                <td>
+                                    @item.UserName
+                                </td>
+                                <td>
+                                    @item.Email
+                                </td>
+                                <td>
+                                    @String.Format("{0:g}", item.LastActiveDateTime)
+                                </td>
+                                <td>
+                                    @(item.IsLockedOut ? "Yes" : "No")
+                                </td>
+                                <td>
+                                    @(item.IsOnline ? "Yes":"No" )
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Sterge", "Delete", new { userName = item.UserName }, new { onclick = "if (!confirm('Sunteti sigur ca doriti sa-l stergeti ?')) return false;" })
+                                </td>
+                            </tr>
+                         }*@
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

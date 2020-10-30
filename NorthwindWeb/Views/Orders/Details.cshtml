@@ -1,0 +1,156 @@
+﻿@model NorthwindWeb.ViewModels.Orders.OrderDetali
+
+@{
+    ViewBag.Title = "Detalii";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+
+    <h2>Detalii</h2>
+    <hr />
+    <ol class="breadcrumb">
+        <li>
+            @Html.ActionLink("Dashboard", "Home", "Dashboard")
+        </li>
+        <li>
+            @Html.ActionLink("Comenzi", "Index", "Orders")
+        </li>
+        <li class="active">Detalii</li>
+    </ol>
+    <div>
+        <div class="col-md-6">
+            <h4>Comenzi</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Id comanda
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model=>model.Order.OrderID)<br />
+                </dd>
+                <dt>
+                   Companie
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Order.Customer.CompanyName)<br />
+                </dd>
+
+                <dt>
+                    Prenume
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Order.Employee.LastName)<br />
+                </dd>
+
+                <dt>
+                    Nume Companie
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Order.Shipper.CompanyName)<br />
+                </dd>
+
+                <dt>
+                    Data livrarii
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Order.ShippedDate)<br />
+                </dd>
+
+                <dt>
+                    Nume Expeditor
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Order.ShipName)<br />
+                </dd>
+
+                <dt>
+                    Adresa livrarii
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Order.ShipAddress)<br />
+                </dd>
+
+                <dt>
+                    Oras
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Order.ShipCity)<br />
+                </dd>
+
+                <dt>
+                    Tara
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Order.ShipCountry)<br />
+                </dd>
+
+            </dl>
+
+            <p>
+               @Html.ActionLink("Modifica", "Edit", "Orders", new { id = Model.Order.OrderID }, new { @class = "btn btn-default" }) |   
+               @Html.ActionLink("Inapoi la lista", "Index", "Orders", new { @class = "btn btn-default" })  
+              
+            </p>
+        </div>
+        <div class="col-md-6">
+            <h4>Detalii Comanda</h4>
+            <hr />
+            @Html.ActionLink("Adauga", "Create", "OrderDetail", new { id = ViewBag.orderid }, new { @class = "btn btn-default" }) 
+            <br /><br /><br />
+           @foreach (var y in Model.Details)
+           {
+              <dl class="dl-horizontal">
+
+                <dt><br />
+                   Id-ul Produsului 
+                </dt>
+
+                <dd><br />
+                    @y.ProductID
+                </dd>
+
+                <dt>
+                   Cantitate
+                </dt>
+
+                <dd>
+                   @y.Quantity
+                </dd>
+
+                <dt>
+                    Preț unitar 
+                </dt>
+
+                <dd>
+                    @decimal.Round(y.UnitPrice ?? 0, 2).ToString() lei
+                </dd>
+
+                <dt>
+                    Discount 
+                </dt>
+
+                <dd>
+                    @y.Discount
+                </dd> 
+                  <dt>
+                     @Html.ActionLink("Modifica", "Edit","OrderDetail", new { OrderID = @y.OrderID, ProductID = @y.ProductID }, new { @class = "btn btn-default" }) |
+                  
+                      @Html.ActionLink("Sterge", "Delete", "OrderDetail", new { OrderID = @y.OrderID, ProductID = @y.ProductID }, new { @class = "btn btn-default"  })
+                  </dt><br />
+            </dl>
+           }
+           
+        </div>
+    </div>
+
+
+

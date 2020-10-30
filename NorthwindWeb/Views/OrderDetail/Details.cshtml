@@ -1,0 +1,64 @@
+﻿@model NorthwindWeb.Models.Order_Details
+
+@{
+    ViewBag.Title = "Detalii";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+
+
+    <h2>Detalii</h2>
+
+    <div>
+        <h4>Detalii Comanda</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+               ID-ul clientului
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Order.CustomerID)<br />
+            </dd>
+
+            <dt>
+               Nume Produs
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Product.ProductName)<br />
+            </dd>
+
+            <dt>
+                 Pret Unitar
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UnitPrice)<br />
+            </dd>
+
+            <dt>
+                Cantitate
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)<br />
+            </dd>
+
+            <dt>
+                Discount
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Discount)<br />
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+       
+            @Html.ActionLink("Inapoi", "Details", "Orders", new { id = ViewBag.orderid }, new { @class = "btn btn-default" })
+
+    </p>
+
+

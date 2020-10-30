@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using NorthwindWeb.Models
+@using NorthwindWeb.Context
+
+@{
+    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+}
+@if (Request.IsAuthenticated)
+{
+    <li>
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "form-inline navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+        }
+       
+        <a href=# class="dropdown-toggle" data-toggle="dropdown">User: @HttpUtility.HtmlDecode(User.Identity.GetUserName())<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            @if (userManager.IsInRole(User.Identity.GetUserId(), "Managers") || userManager.IsInRole(User.Identity.GetUserId(), "Admins"))
+            {
+                <li id="dashboard">
+                    @Html.ActionLink("Dashboard", "Home", "Dashboard")
+                </li>
+            }
+            <li>
+                @Html.ActionLink("Manage", "Index", "Manage")
+            </li>
+            @if (userManager.IsInRole(User.Identity.GetUserId(), "Managers")|| userManager.IsInRole(User.Identity.GetUserId(), "Admins"))
+            {
+                <li id="orders">
+                    @Html.ActionLink("Order List", "HomeAdmin", "Order")
+                </li>
+            }
+            @if (userManager.IsInRole(User.Identity.GetUserId(), "Employees"))
+            {
+                <li id="userOrders">
+                    @Html.ActionLink("Assigned commands", "Home", "Order")
+                </li>
+            }
+            @if (userManager.IsInRole(User.Identity.GetUserId(), "Customers"))
+            {
+                <li id="userOrders">
+                    @Html.ActionLink("'" + User.Identity.GetUserName() + "' Orders", "HomeCustomers", "Order")
+                </li>
+            }
+        </ul>
+    </li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+}
+else
+{
+    <li>@Html.ActionLink("New user", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+}

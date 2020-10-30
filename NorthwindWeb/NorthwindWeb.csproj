@@ -1,0 +1,712 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A429C64-6D6D-40F8-94F1-B32290B184AE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NorthwindWeb</RootNamespace>
+    <AssemblyName>NorthwindWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\NorthwindWeb.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.5.1.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.5.1\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Context\ApplicationDataContext.cs" />
+    <Compile Include="Context\NorthwindDatabaseInitializer.cs" />
+    <Compile Include="Context\IdentityDatabaseInitializer.cs" />
+    <Compile Include="Context\NorthwindReferenceTableInitializer.cs" />
+    <Compile Include="Context\NorthwindTestDatabaseInitializer.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CategoriesDummyController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderDetailController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\OtherController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\RegionsController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\ShippersController.cs" />
+    <Compile Include="Controllers\ShopCartController.cs" />
+    <Compile Include="Controllers\SuppliersController.cs" />
+    <Compile Include="Controllers\TerritoriesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010041234569_initialmigration.cs" />
+    <Compile Include="Migrations\202010041234569_initialmigration.Designer.cs">
+      <DependentUpon>202010041234569_initialmigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\CustomerDemographics.cs" />
+    <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\ExceptionHandler\DeleteException.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Interfaces\IJsonTableFill.cs" />
+    <Compile Include="Context\NorthwindDatabase.cs" />
+    <Compile Include="Models\Orders.cs" />
+    <Compile Include="Models\Order_Details.cs" />
+    <Compile Include="Models\Persons.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Region.cs" />
+    <Compile Include="Models\ServerClientCommunication\CategoriesData.cs" />
+    <Compile Include="Models\ServerClientCommunication\JsonDataTableObject.cs" />
+    <Compile Include="Models\ServerClientCommunication\RegionData.cs" />
+    <Compile Include="Models\ServerClientCommunication\ShipperData.cs" />
+    <Compile Include="Models\Shippers.cs" />
+    <Compile Include="Models\ShopCarts.cs" />
+    <Compile Include="Models\ShopCart\ProductShopCart.cs" />
+    <Compile Include="Models\ShopCart\ProductShopResponse.cs" />
+    <Compile Include="Models\Suppliers.cs" />
+    <Compile Include="Models\Territories.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\DashbordCustomer.cs" />
+    <Compile Include="ViewModels\Customer.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\CustomizeViewEngine.cs" />
+    <Compile Include="ViewModels\Dashboard\DashboardMorrisArea.cs" />
+    <Compile Include="ViewModels\Dashboard\DashboardMorrisBar.cs" />
+    <Compile Include="ViewModels\Dashboard\DashboardMorrisDonut.cs" />
+    <Compile Include="ViewModels\Dashboard\DashboardIndexData.cs" />
+    <Compile Include="ViewModels\Dashboard\DashboardSearchData.cs" />
+    <Compile Include="ViewModels\Dashboard\LastTenOrders.cs" />
+    <Compile Include="ViewModels\Dashboard\LocateSearch.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
+    <Compile Include="ViewModels\Orders\DetailsOfOrder.cs" />
+    <Compile Include="ViewModels\Orders\OrderDetali.cs" />
+    <Compile Include="ViewModels\Menu.cs" />
+    <Compile Include="ViewModels\Order\BigOrder.cs" />
+    <Compile Include="ViewModels\Order\OrderTen.cs" />
+    <Compile Include="ViewModels\Order\OrderInfo.cs" />
+    <Compile Include="ViewModels\Order\OrderIndexData.cs" />
+    <Compile Include="ViewModels\Order\OrderProduct.cs" />
+    <Compile Include="ViewModels\Order\ProductCategory.cs" />
+    <Compile Include="ViewModels\Services\ProductServices.cs" />
+    <Compile Include="ViewModels\RegionDetails.cs" />
+    <Compile Include="ViewModels\RegionIndex.cs" />
+    <Compile Include="ViewModels\ReportViewModel.cs" />
+    <Compile Include="ViewModels\Services\ServicesIndex.cs" />
+    <Compile Include="ViewModels\ViewProductCategoryS.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\SQL\1.Orders Qry.sql" />
+    <Content Include="App_Data\SQL\2.Current Product List.sql" />
+    <Content Include="App_Data\SQL\3.Order Subtotals.sql" />
+    <Content Include="App_Data\SQL\4.Order Details Extended.sql" />
+    <Content Include="App_Data\SQL\5.Product Sales for 1997.sql" />
+    <Content Include="App_Data\SQL\Alphabetical list of products.sql" />
+    <Content Include="App_Data\SQL\Category Sales for 1997.sql" />
+    <Content Include="App_Data\SQL\Customer and Suppliers by City.sql" />
+    <Content Include="App_Data\SQL\Invoices.sql" />
+    <Content Include="App_Data\SQL\Products Above Average Price.sql" />
+    <Content Include="App_Data\SQL\Products by Category.sql" />
+    <Content Include="App_Data\SQL\Quarterly Orders.sql" />
+    <Content Include="App_Data\SQL\Sales by Category.sql" />
+    <Content Include="App_Data\SQL\Sales Totals by Amount.sql" />
+    <Content Include="App_Data\SQL\Summary of Sales by Quarter.sql" />
+    <Content Include="App_Data\SQL\Summary of Sales by Year.sql" />
+    <Content Include="App_Data\SQL\_ReadMe.txt" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\responsive.dataTables.min.css" />
+    <Content Include="Content\DataTables\images\details_close.png" />
+    <Content Include="Content\DataTables\images\details_open.png" />
+    <Content Include="css\CustomerStyle.css" />
+    <Content Include="css\DashboardMenu.css" />
+    <Content Include="images\admin.jpg" />
+    <Content Include="images\AndrewFuller.jpg" />
+    <Content Include="images\Home\k.png" />
+    <Content Include="images\JanetLeverling.jpg" />
+    <Content Include="images\LauraCojocaru.jpg" />
+    <Content Include="images\MargaretPeacock.jpg" />
+    <Content Include="images\MichaelSuyama.jpg" />
+    <Content Include="images\NancyDavolio.jpg" />
+    <Content Include="images\northwind-sign.jpg" />
+    <Content Include="images\default.png" />
+    <Content Include="images\ramona.jpg" />
+    <Content Include="images\sort_asc.png" />
+    <Content Include="Content\DataTables\images\sort_asc_disabled.png" />
+    <Content Include="images\sort_both.png" />
+    <Content Include="images\sort_desc.png" />
+    <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\dist\sb-admin-2.css" />
+    <Content Include="css\dist\sb-admin-2.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="css\metisMenu\metisMenu.css" />
+    <Content Include="css\metisMenu\metisMenu.min.css" />
+    <Content Include="css\modern-business.css" />
+    <Content Include="css\Order.css" />
+    <Content Include="css\product.css" />
+    <Content Include="css\Style.css" />
+    <Content Include="css\alt info 2.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\Accesorii\26.jpg" />
+    <Content Include="images\Accesorii\27.jpg" />
+    <Content Include="images\Accesorii\28.jpg" />
+    <Content Include="images\Accesorii\29.jpg" />
+    <Content Include="images\Accesorii\30.jpg" />
+    <Content Include="images\Accesorii\31.jpg" />
+    <Content Include="images\Accesorii\32.jpg" />
+    <Content Include="images\Accesorii\33.jpg" />
+    <Content Include="images\Accesorii\34.jpg" />
+    <Content Include="images\Accesorii\35.jpg" />
+    <Content Include="images\Accesorii\36.jpg" />
+    <Content Include="images\Accesorii\37.jpg" />
+    <Content Include="images\Accesorii\38.jpg" />
+    <Content Include="images\Accesorii\39.jpg" />
+    <Content Include="images\Accesorii\40.jpg" />
+    <Content Include="images\Accesorii\41.jpg" />
+    <Content Include="images\alt2.png" />
+    <Content Include="images\aple.png" />
+    <Content Include="images\desc.jpg" />
+    <Content Include="images\eBook Reader\1.jpg" />
+    <Content Include="images\eBook Reader\10.jpg" />
+    <Content Include="images\eBook Reader\11.jpg" />
+    <Content Include="images\eBook Reader\2.jpg" />
+    <Content Include="images\eBook Reader\3.jpg" />
+    <Content Include="images\eBook Reader\4.jpg" />
+    <Content Include="images\eBook Reader\5.jpg" />
+    <Content Include="images\eBook Reader\6.jpg" />
+    <Content Include="images\eBook Reader\7.jpg" />
+    <Content Include="images\eBook Reader\8.jpg" />
+    <Content Include="images\eBook Reader\9.jpg" />
+    <Content Include="images\Gadgeturi\63.jpg" />
+    <Content Include="images\Gadgeturi\64.jpg" />
+    <Content Include="images\Gadgeturi\65.jpg" />
+    <Content Include="images\Gadgeturi\66.jpg" />
+    <Content Include="images\Gadgeturi\67.jpg" />
+    <Content Include="images\Gadgeturi\68.jpg" />
+    <Content Include="images\Gadgeturi\69.jpg" />
+    <Content Include="images\Gadgeturi\70.jpg" />
+    <Content Include="images\Gadgeturi\71.jpg" />
+    <Content Include="images\Gadgeturi\72.jpg" />
+    <Content Include="images\Gadgeturi\73.jpg" />
+    <Content Include="images\Gadgeturi\74.jpg" />
+    <Content Include="images\Gadgeturi\75.jpg" />
+    <Content Include="images\Gadgeturi\76.jpg" />
+    <Content Include="images\Gadgeturi\77.jpg" />
+    <Content Include="images\hi-fun.png" />
+    <Content Include="images\Home\ebooks.jpg" />
+    <Content Include="images\Home\imgad.png" />
+    <Content Include="images\images.jpg" />
+    <Content Include="images\Home\AppleLogo.png" />
+    <Content Include="images\Home\asus.png" />
+    <Content Include="images\Home\huawei.jpg" />
+    <Content Include="images\Home\logo-firma.png" />
+    <Content Include="images\Home\logo-sony.jpg" />
+    <Content Include="images\Home\Nokia.gif" />
+    <Content Include="images\Home\samsung.jpg" />
+    <Content Include="images\Home\footer_logo.png" />
+    <Content Include="images\Home\reduceri-telefoane-emag-it-mobile-days.jpg" />
+    <Content Include="images\logo-white.png" />
+    <Content Include="images\accesorii.png" />
+    <Content Include="images\eBookreader.jpg" />
+    <Content Include="images\Gadgeturi.jpg" />
+    <Content Include="images\mag.jpg" />
+    <Content Include="images\magazinonlinelacheie.png" />
+    <Content Include="images\samsung.png" />
+    <Content Include="images\Services\apeluri-voce.jpg" />
+    <Content Include="images\Services\mesagerie-vocala.jpg" />
+    <Content Include="images\Services\mobiledata.jpg" />
+    <Content Include="images\Services\SMS-Marketing.png" />
+    <Content Include="images\Servicii\78.jpg" />
+    <Content Include="images\Servicii\79.jpg" />
+    <Content Include="images\Servicii\80.jpg" />
+    <Content Include="images\Servicii\81.jpg" />
+    <Content Include="images\Servicii\82.jpg" />
+    <Content Include="images\Servicii\83.jpg" />
+    <Content Include="images\Servicii\84.jpg" />
+    <Content Include="images\Servicii\85.jpg" />
+    <Content Include="images\Servicii\86.jpg" />
+    <Content Include="images\Servicii\87.jpg" />
+    <Content Include="images\Servicii\88.jpg" />
+    <Content Include="images\share-magazin-online.png" />
+    <Content Include="images\smartphone.jpg" />
+    <Content Include="images\Smartphone\62.jpg" />
+    <Content Include="images\Smartphone\47.jpg" />
+    <Content Include="images\Smartphone\42.jpg" />
+    <Content Include="images\Smartphone\55.jpg" />
+    <Content Include="images\Smartphone\53.jpg" />
+    <Content Include="images\Smartphone\56.jpg" />
+    <Content Include="images\Smartphone\58.jpg" />
+    <Content Include="images\Smartphone\54.jpg" />
+    <Content Include="images\Smartphone\51.jpg" />
+    <Content Include="images\Smartphone\61.jpg" />
+    <Content Include="images\Smartphone\43.jpg" />
+    <Content Include="images\Smartphone\44.jpg" />
+    <Content Include="images\Smartphone\48.jpg" />
+    <Content Include="images\Smartphone\49.jpg" />
+    <Content Include="images\Smartphone\57.jpg" />
+    <Content Include="images\Smartphone\45.jpg" />
+    <Content Include="images\Smartphone\59.jpg" />
+    <Content Include="images\Smartphone\52.jpg" />
+    <Content Include="images\Smartphone\46.jpg" />
+    <Content Include="images\Smartphone\60.jpg" />
+    <Content Include="images\Smartphone\50.jpg" />
+    <Content Include="images\sony3.jpg" />
+    <Content Include="images\StevenBuchanan.jpg" />
+    <Content Include="images\telefoane_clasice.jpg" />
+    <Content Include="images\Clasice\17.jpg" />
+    <Content Include="images\Clasice\20.jpg" />
+    <Content Include="images\Clasice\14.jpg" />
+    <Content Include="images\Clasice\12.jpg" />
+    <Content Include="images\Clasice\23.jpg" />
+    <Content Include="images\Clasice\19.jpg" />
+    <Content Include="images\Clasice\25.jpg" />
+    <Content Include="images\Clasice\24.jpg" />
+    <Content Include="images\Clasice\16.jpg" />
+    <Content Include="images\Clasice\18.jpg" />
+    <Content Include="images\Clasice\22.jpg" />
+    <Content Include="images\Clasice\21.jpg" />
+    <Content Include="images\Clasice\13.jpg" />
+    <Content Include="images\Clasice\15.jpg" />
+    <Content Include="images\wpid-nokia-logo.jpg" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\dist\sb-admin-2.js" />
+    <Content Include="js\dist\sb-admin-2.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\metisMenu\metisMenu.js" />
+    <Content Include="js\metisMenu\metisMenu.min.js" />
+    <Content Include="css\morris.css" />
+    <Content Include="js\morrisjs\morris-data.js" />
+    <Content Include="js\morrisjs\morris.js" />
+    <Content Include="js\morrisjs\morris.min.js" />
+    <Content Include="js\OrderDatatable.js" />
+    <Content Include="js\raphael\raphael.js" />
+    <Content Include="js\raphael\raphael.min.js" />
+    <Content Include="js\script.js" />
+    <Content Include="js\ShopCart.js" />
+    <Content Include="js\ShopCartDataTable.js" />
+    <Content Include="Readme.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\DataTables\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.min.js" />
+    <None Include="Scripts\jquery-1.7-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.js" />
+    <Content Include="Scripts\jquery-1.7.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\product.js" />
+    <Content Include="Scripts\reports.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\OrderDetail\Create.cshtml" />
+    <Content Include="Views\OrderDetail\Delete.cshtml" />
+    <Content Include="Views\OrderDetail\Details.cshtml" />
+    <Content Include="Views\OrderDetail\Edit.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\Shared\_OrdersMenuPartial.cshtml" />
+    <Content Include="Views\Persons\Create.cshtml" />
+    <Content Include="Views\Persons\Delete.cshtml" />
+    <Content Include="Views\Persons\Details.cshtml" />
+    <Content Include="Views\Persons\Edit.cshtml" />
+    <Content Include="Views\Persons\Index.cshtml" />
+    <Content Include="Views\Territories\Create.cshtml" />
+    <Content Include="Views\Territories\Delete.cshtml" />
+    <Content Include="Views\Territories\Details.cshtml" />
+    <Content Include="Views\Territories\Edit.cshtml" />
+    <Content Include="Views\Shared\_LayoutReports.cshtml" />
+    <Content Include="Views\Dashboard\Search.cshtml" />
+    <Content Include="Views\Account\DeleteUser.cshtml" />
+    <Content Include="Views\Order\HomeAdmin.cshtml" />
+    <Content Include="Views\ShopCart\Index.cshtml" />
+    <Content Include="Views\ShopCart\ConfirmOrder.cshtml" />
+    <Content Include="Views\ShopCart\CreateCustomers.cshtml" />
+    <Content Include="Views\Account\RegisterAdmin.cshtml" />
+    <Content Include="Views\Order\HomeCustomers.cshtml" />
+    <Content Include="Views\Shared\_LoginPartialDashboard.cshtml" />
+    <Content Include="Views\Errors\Index.cshtml" />
+    <Content Include="Views\Reports\LogIn.cshtml" />
+    <Content Include="Views\Shared\_SecurityPartial.cshtml" />
+    <Content Include="Views\Manage\ChangeEmail.cshtml" />
+    <Content Include="Views\Manage\ChangeImage.cshtml" />
+    <Content Include="Views\Account\CreateRole.cshtml" />
+    <Content Include="Views\CategoriesDummy\Create.cshtml" />
+    <Content Include="Views\CategoriesDummy\Delete.cshtml" />
+    <Content Include="Views\CategoriesDummy\Details.cshtml" />
+    <Content Include="Views\CategoriesDummy\Edit.cshtml" />
+    <Content Include="Views\CategoriesDummy\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Shippers\Create.cshtml" />
+    <Content Include="Views\Shippers\Delete.cshtml" />
+    <Content Include="Views\Shippers\Details.cshtml" />
+    <Content Include="Views\Shippers\Edit.cshtml" />
+    <Content Include="Views\Shippers\Index.cshtml" />
+    <Content Include="Views\Suppliers\Create.cshtml" />
+    <Content Include="Views\Suppliers\Delete.cshtml" />
+    <Content Include="Views\Suppliers\Details.cshtml" />
+    <Content Include="Views\Suppliers\Edit.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
+    <Content Include="Views\Regions\Create.cshtml" />
+    <Content Include="Views\Regions\Delete.cshtml" />
+    <Content Include="Views\Regions\Details.cshtml" />
+    <Content Include="Views\Regions\Edit.cshtml" />
+    <Content Include="Views\Regions\Index.cshtml" />
+    <Content Include="Views\Account\AddUsersToRole.cshtml" />
+    <Content Include="Views\Account\ChangeUser.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\RoleMembership.cshtml" />
+    <Content Include="Views\Account\RolesIndex.cshtml" />
+    <Content Include="Views\Account\UsersInRole.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202010041234569_initialmigration.resx">
+      <DependentUpon>202010041234569_initialmigration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\About\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Services\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Contact\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\Home.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Other\FullWidth.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Other\SideBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Other\Faq.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Other\alt2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Products\Products.cshtml" />
+    <Content Include="css\font-awesome.css.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\BROMPREPROD1.pubxml" />
+    <Content Include="Views\Dashboard\Home.cshtml" />
+    <Content Include="Views\Shared\_LayoutDashboard.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55878/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY /Y /R "$(SolutionDir)NorthwindDB\dbo\Views\*" "$(ProjectDir)App_Data\SQL\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

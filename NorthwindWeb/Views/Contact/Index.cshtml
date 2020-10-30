@@ -1,0 +1,80 @@
+﻿@model NorthwindWeb.Models.Persons
+
+@{
+    ViewBag.Title = "Contact";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Contact </h1>
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li class="active">Contact</li>
+            </ol>
+        </div>
+        <div class="col-lg-12">
+            <!-- Embedded Google Map using an iframe - to select your location find it on Google maps and paste the link as the iframe src. If you want to use the Google Maps API instead then have at it! -->
+            <iframe scrolling="no" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2846.710625275883!2d26.1061385158562!3d44.48010397910156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b202797a54bac1%3A0x365f39e7d7ef7166!2sKepler-Rominfo!5e0!3m2!1sro!2sro!4v1503048554459" marginwidth="0" marginheight="0"></iframe>
+
+
+
+        </div>
+    </div><!-- /.row -->
+    <div class="row">
+        <div class="col-sm-8">
+            <h3>Get in touch with us</h3>
+            <p>To avoid junk mail filters, if you contact us for the first time, please use the form below. This way you make sure that your message reaches us. Thank you.</p>
+
+            @if (!String.IsNullOrEmpty(ViewBag.Status))
+            {
+                <h1>@ViewBag.Status</h1>
+            }
+            @using (Html.BeginForm("Index", "Contact", FormMethod.Post, htmlAttributes: new { @class = "ord-form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label style="color:white;">Name </label><br />
+                        @Html.TextBoxFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label style="color:white;">First name </label><br />
+                        @Html.TextBoxFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label style="color:white;">Email </label><br />
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-12">
+                        <label style="color:white;">Comment</label><br />
+                        @Html.TextAreaFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+
+            }
+        </div>
+        <div class="col-sm-4">
+            <h3>Northwind Phone</h3>
+            <h4></h4><br />
+            <span>
+                <i class="glyphicon glyphicon-map-marker"></i>
+                Bulevardul Dimitrie Pompeiu 5, <br />
+                Sector 2, București 077190.<br />
+
+            </span>
+            <span><i class="glyphicon glyphicon-earphone"></i> : 021 233 1080 </span><br />
+            <span><i class="glyphicon glyphicon-envelope"></i> : <a href="https://www.kepler-rominfo.com/pages/home">northwind-phone.com </a></span><br />
+            <span><i class="glyphicon glyphicon-calendar"></i>  : Luni - Vineri: 9:00 AM - 6:00 PM</span><br />
+        </div>
+    </div><!-- /.row -->
+</div> 

@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@using NorthwindWeb.Models
+@using NorthwindWeb.Context
+@{
+    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+}
+@if (Request.IsAuthenticated && userManager.IsInRole(User.Identity.GetUserId(), "Admins"))
+{
+    
+}
+

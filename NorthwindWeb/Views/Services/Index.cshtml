@@ -1,0 +1,158 @@
+﻿@model NorthwindWeb.ViewModels.ServicesIndex
+@{
+    ViewBag.Title = "Services";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Services
+                <small>What We Offer</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li class="active">Services</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="~/Images/CompanyServices/mobiledata.jpg" class="img-responsive">
+        </div>
+    </div>
+    <!-- /.row -->
+    <!-- Service Paragraphs -->
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="page-header">Repairs in just 5 days.</h2>
+            <p>With our Service you do not run out of phone when yours no longer works. We repair it on average in 5 days in a modern service center, and during this time you receive another phone (within the available stock) to use until you recover yours.</p>
+        </div>
+        <div class="col-md-4">
+            <h2 class="page-header">Benefits</h2>
+            <p>Repair your phone with us and you have the following benefits:</p>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Benefits <span class="glyphicon glyphicon-arrow-right"></span></button>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4>Benefits</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>- You recover your phone on average within 5 working days of entering service</p>
+                            <p>- You receive a replacement phone call during the repair</p>
+                            <p>- You have the largest telephone collection network at your disposal</p>
+                            <p>- You benefit from the expertise of specialized technicians working in a modern service center, with professional equipment</p>
+                            <p>- You have a guarantee for the interventions performed on your phone</p>
+                            <p>- You can check online the status of your phone. All you have to do is enter its IMEI series, mentioned in the minutes of handing over and receiving the telephone in service and the telephone number.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove"></span> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- /.row -->
+        <!-- Service Tabs -->
+
+      <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Products</h2>
+                <ul class="nav nav-tabs" id="myTab">
+                    @{int i = 1;}
+                    @foreach (var itemInTop4 in Model.TopFourName)
+                    {
+                        if (i == 1)
+                        {
+                            <li class="active">
+                                <a data-toggle="tab" href="#@i">@itemInTop4</a>
+                            </li>
+                            <span hidden="true">@(i++)</span>
+                        }
+                        else
+                        {
+                            <li>
+                                <a data-toggle="tab" href="#@i">@itemInTop4</a>
+                            </li>
+                            <span hidden="true">@(i++)</span>
+                        }
+                    }
+                </ul>
+
+                <div class="tab-content" id="myTabContent">
+
+                    @{int j = 1;}
+                    @foreach (var itemInProducts in Model.TopFourProducts)
+                    {
+                        if (j == 1)
+                        {
+                            <div id="@j" class="tab-pane fade in active">
+                                
+                                <ul>
+                                        <li>Name: @itemInProducts.ProductName</li>
+                                        <li>Company: @itemInProducts.CompanyName</li>
+                                        <li>Category: @itemInProducts.CategoryName</li>
+                                        <li>Quantity per unit: @itemInProducts.QuantityPerUnit</li>
+                                        <li>Price: @decimal.Round(itemInProducts.UnitPrice ?? 0, 2).ToString() lei</li>
+                                        <li>In stock: @itemInProducts.UnitsInStock</li>
+                                        <li>In commands: @itemInProducts.UnitsOnOrder</li>
+                                </ul>
+
+                            </div>
+                        }
+                        else
+                        {
+                            <div id="@j" class="tab-pane">
+                                
+                                <ul>
+                                    <li>Denumire: @itemInProducts.ProductName</li>
+                                    <li>Companie: @itemInProducts.CompanyName</li>
+                                    <li>Categorie: @itemInProducts.CategoryName</li>
+                                    <li>Cantitate pe unitate: @itemInProducts.QuantityPerUnit</li>
+                                    <li>Pret unitar: @decimal.Round(itemInProducts.UnitPrice ?? 0, 2).ToString() lei</li>
+                                    <li>In stoc: @itemInProducts.UnitsInStock</li>
+                                    <li>In comenzi: @itemInProducts.UnitsOnOrder</li>
+                                </ul>
+
+                            </div>
+                        }
+                        <span hidden="true">@(j++)</span>
+                    }
+
+                </div>
+            </div>
+      </div>
+        <!-- /.row -->
+        <!-- Service Images -->
+        
+    <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Products images</h2>
+            </div>
+
+            @foreach (var itemInLast3 in Model.LastThreeProducts)
+            {
+                <div class="col-sm-4">                                      
+                    <img src="~/Images/Services/@(itemInLast3.ProductID).jpg" class="img-services img-responsive">
+                    <h3>@itemInLast3.ProductName</h3>
+                    <ul>                           
+                            <li>@itemInLast3.CompanyName</li>
+                            <li>@itemInLast3.CategoryName</li>
+                            <li>Cantitate pe unitate: @itemInLast3.QuantityPerUnit</li>      
+                            <li>Pret unitar: @decimal.Round(itemInLast3.UnitPrice ?? 0, 2).ToString() lei</li>
+                            <li>In stoc: @itemInLast3.UnitsInStock</li>
+                            <li>In comenzi: @itemInLast3.UnitsOnOrder</li>
+                    </ul>
+                </div>
+            }
+        </div>
+        <!-- /.row -->
+</div>

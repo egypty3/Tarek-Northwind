@@ -1,0 +1,48 @@
+﻿@model NorthwindWeb.Models.Persons
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Persons</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)<br />
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)<br />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)<br />
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)<br />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)<br />
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)<br />
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
