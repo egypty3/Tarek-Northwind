@@ -10,8 +10,8 @@ namespace NorthwindWeb.Models
     /// <summary>
     /// The entity that contains information about persons, located in database.
     /// </summary>
-    [Table("Persons")]
-    public partial class Persons
+    [Table("Person")]
+    public partial class Person
     {
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace NorthwindWeb.Models
         /// The LastName through which we find the person.
         /// </summary>
         [Key]
-        [Required(ErrorMessage = "Introduceti-va numele")]
+        [Required(ErrorMessage = "Enter your name")]
         [Column(Order = 1)]
         [StringLength(255)]
         public string LastName { get; set; }
@@ -40,7 +40,7 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// The Email through which we find the person.
         /// </summary>
-        [Required(ErrorMessage = "Email-ul nu a fost introdus corect")]
+        [Required(ErrorMessage = "Email was not entered correctly")]
         [EmailAddress]
         [StringLength(255)]
         public string Email { get; set; }
@@ -48,7 +48,7 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// The Comment what belongs to the person.
         /// </summary>
-        [Required(ErrorMessage = "Va rugam sa va spuneti parerea")]
+        [Required(ErrorMessage = "Please give your opinion")]
         [StringLength(255)]
         public string Comment { get; set; }
 

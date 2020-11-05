@@ -35,7 +35,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>If successful returns contact index view, else goes back to form.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index([Bind(Include = "ID,LastName,FirstName,Email,Comment")] Persons person)
+        public ActionResult Index([Bind(Include = "ID,LastName,FirstName,Email,Comment")] Person person)
         {//create person from Form
 
             if (!ModelState.IsValid)

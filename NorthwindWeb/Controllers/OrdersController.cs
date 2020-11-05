@@ -44,7 +44,7 @@ namespace NorthwindWeb.Controllers
         {
             OrderDetali viewModel = new OrderDetali();
             //take details of orders
-            Orders orders = await db.Orders.FindAsync(id);
+            Order orders = await db.Orders.FindAsync(id);
             if (orders == null)
             {
                 return HttpNotFound();
@@ -98,7 +98,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>If successful returns orders index view, else goes back to form.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "OrderID,CustomerID,EmployeeID,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipName,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry")] Orders orders)
+        public async Task<ActionResult> Create([Bind(Include = "OrderID,CustomerID,EmployeeID,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipName,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry")] Order orders)
         {
             if (ModelState.IsValid)
             {
@@ -126,7 +126,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Orders orders = await db.Orders.FindAsync(id);
+            Order orders = await db.Orders.FindAsync(id);
             if (orders == null)
             {
                 return HttpNotFound();
@@ -146,7 +146,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>Orders index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "OrderID,CustomerID,EmployeeID,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipName,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry")] Orders orders)
+        public async Task<ActionResult> Edit([Bind(Include = "OrderID,CustomerID,EmployeeID,OrderDate,RequiredDate,ShippedDate,ShipVia,Freight,ShipName,ShipAddress,ShipCity,ShipRegion,ShipPostalCode,ShipCountry")] Order orders)
         {
             if (ModelState.IsValid)
             {
@@ -174,7 +174,7 @@ namespace NorthwindWeb.Controllers
             }
             OrderDetali viewModel = new OrderDetali();
             //take details of orders
-            Orders orders = await db.Orders.FindAsync(id);
+            Order orders = await db.Orders.FindAsync(id);
             if (orders == null)
             {
                 return HttpNotFound();
@@ -225,7 +225,7 @@ namespace NorthwindWeb.Controllers
             foreach (var orderDet in details)
                 db.Order_Details.Remove(orderDet);
 
-            Orders orders = await db.Orders.FindAsync(id);
+            Order orders = await db.Orders.FindAsync(id);
             db.Orders.Remove(orders);
 
             await db.SaveChangesAsync();

@@ -76,7 +76,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrdersReturnsDetails()
         {
             //Arrage
-            Orders orderTest = new Orders() { OrderID = 222, EmployeeID = 3 };
+            Order orderTest = new Order() { OrderID = 222, EmployeeID = 3 };
             await _ordersControllerUnderTest.Create(orderTest);
 
             //Act
@@ -113,7 +113,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrdersReturnsCreateCreates()
         {
             //Arrange
-            Orders OrderTest = new Orders() {OrderID=22, CustomerID= "ALFKI", EmployeeID=3};
+            Order OrderTest = new Order() {OrderID=22, CustomerID= "ALFKI", EmployeeID=3};
             //Act
             var expected = db.Orders.Count() + 1;
             await _ordersControllerUnderTest.Create(OrderTest);
@@ -135,7 +135,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrdersReturnsEdit()
         {
             //Arrage
-            Orders orderTest = new Orders() { OrderID = 222, EmployeeID = 3 };
+            Order orderTest = new Order() { OrderID = 222, EmployeeID = 3 };
             await _ordersControllerUnderTest.Create(orderTest);
 
             //Act
@@ -156,7 +156,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrdersReturnsEditEdits()
         {
             //Arrange
-            Orders orderTest = new Orders() { OrderID = 222, EmployeeID = 3 };
+            Order orderTest = new Order() { OrderID = 222, EmployeeID = 3 };
             await _ordersControllerUnderTest.Create(orderTest);
             db.Entry(orderTest).State = System.Data.Entity.EntityState.Added;
 
@@ -189,7 +189,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrdersReturnsDelete()
         {
             //Arrange
-            Orders orderTest = new Orders() { OrderID = 222, EmployeeID = 3 };
+            Order orderTest = new Order() { OrderID = 222, EmployeeID = 3 };
             await _ordersControllerUnderTest.Create(orderTest);
 
             //Act
@@ -212,7 +212,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrdersReturnsDeleteDeletes()
         {
             //Arrange
-            Orders orderTest = new Orders() { OrderID = 222, EmployeeID = 3 };
+            Order orderTest = new Order() { OrderID = 222, EmployeeID = 3 };
             await _ordersControllerUnderTest.Create(orderTest);
             int expected = db.Orders.Count() - 1;
 

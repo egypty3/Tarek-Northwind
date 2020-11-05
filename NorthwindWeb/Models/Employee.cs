@@ -10,16 +10,16 @@ namespace NorthwindWeb.Models
     /// <summary>
     /// The entity that holds all the information from the Employees table in the database.
     /// </summary>
-    public partial class Employees
+    public partial class Employee
     {
         /// <summary>
         /// Default constructor. Initialises new empty instances for Employees1, Orders and Territories.
         /// </summary>
-        public Employees()
+        public Employee()
         {
-            Employees1 = new HashSet<Employees>();
-            Orders = new HashSet<Orders>();
-            Territories = new HashSet<Territories>();
+            Employees1 = new HashSet<Employee>();
+            Orders = new HashSet<Order>();
+            Territories = new HashSet<Territory>();
         }
 
         /// <summary>
@@ -126,21 +126,21 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// The employees that this employee is responsible for.
         /// </summary>
-        public virtual ICollection<Employees> Employees1 { get; set; }
+        public virtual ICollection<Employee> Employees1 { get; set; }
 
         /// <summary>
         /// The employee that is responsible for this employee.
         /// </summary>
-        public virtual Employees Employee1 { get; set; }
+        public virtual Employee Employee1 { get; set; }
 
         /// <summary>
         /// The orders of the employee.
         /// </summary>
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
         /// <summary>
         /// The territories where the employee works.
         /// </summary>
-        public virtual ICollection<Territories> Territories { get; set; }
+        public virtual ICollection<Territory> Territories { get; set; }
     }
 }

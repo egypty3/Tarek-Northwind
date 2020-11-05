@@ -10,12 +10,12 @@ namespace NorthwindWeb.Models
     /// <summary>
     /// The entity that holds all the information from the orders table in the database.
     /// </summary>
-    public partial class Orders
+    public partial class Order
     {
         /// <summary>
         /// Default constructor. Initialises new empty instances for Order_Details.
         /// </summary>
-        public Orders()
+        public Order()
         {
             Order_Details = new HashSet<Order_Details>();
         }
@@ -102,12 +102,12 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// The customer of the order.
         /// </summary>
-        public virtual Customers Customer { get; set; }
+        public virtual Customer Customer { get; set; }
 
         /// <summary>
         /// The employee who made the order.
         /// </summary>
-        public virtual Employees Employee { get; set; }
+        public virtual Employee Employee { get; set; }
 
         /// <summary>
         /// The details of the order.
@@ -117,6 +117,6 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// The shipper of the order.
         /// </summary>
-        public virtual Shippers Shipper { get; set; }
+        public virtual Shipper Shipper { get; set; }
     }
 }

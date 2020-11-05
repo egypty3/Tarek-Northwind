@@ -39,7 +39,7 @@ namespace UnitTestNorthwindWeb
         public async System.Threading.Tasks.Task EmployeesCreateCreatesAsync()
         {
             //Arrange
-            Employees employeeTest = new Employees() { EmployeeID = 1000, LastName = "test", FirstName = "test" };
+            Employee employeeTest = new Employee() { EmployeeID = 1000, LastName = "test", FirstName = "test" };
 
             //Act
             var expected = _db.Employees.Count() + 1;
@@ -60,7 +60,7 @@ namespace UnitTestNorthwindWeb
         public async System.Threading.Tasks.Task EmployeesDeleteReturnsViewAsync()
         {
             //Arrange
-            Employees employeeTest = new Employees() { LastName = "test", FirstName = "test" };
+            Employee employeeTest = new Employee() { LastName = "test", FirstName = "test" };
             await _EmployeesControllerUnderTest.Create(employeeTest);
 
             //Act
@@ -83,7 +83,7 @@ namespace UnitTestNorthwindWeb
         public async System.Threading.Tasks.Task EmployeesDeleteDeletesAsync()
         {
             //Arrange
-            Employees employeeTest = new Employees() { LastName = "test", FirstName = "test" };
+            Employee employeeTest = new Employee() { LastName = "test", FirstName = "test" };
             await _EmployeesControllerUnderTest.Create(employeeTest);
             int expected = _db.Employees.Count() - 1;
 
@@ -102,7 +102,7 @@ namespace UnitTestNorthwindWeb
         public async System.Threading.Tasks.Task EmployeesDetailsReturnsViewAsync()
         {
             //Arrange
-            Employees employeeTest = new Employees() { LastName = "test", FirstName = "test" };
+            Employee employeeTest = new Employee() { LastName = "test", FirstName = "test" };
             await _EmployeesControllerUnderTest.Create(employeeTest);
             //Act
             var result = _EmployeesControllerUnderTest.Details(employeeTest.EmployeeID);
@@ -120,7 +120,7 @@ namespace UnitTestNorthwindWeb
         public async System.Threading.Tasks.Task EmployeesEditReturnsViewAsync()
         {
             //Arrange
-            Employees employeeTest = new Employees() { FirstName = "test", LastName = "test" };
+            Employee employeeTest = new Employee() { FirstName = "test", LastName = "test" };
             await _EmployeesControllerUnderTest.Create(employeeTest);
 
             //Act
@@ -143,7 +143,7 @@ namespace UnitTestNorthwindWeb
         public async System.Threading.Tasks.Task EmployeesEditEditsAsync()
         {
             //Arrange
-            Employees employeeTest = new Employees() { LastName = "test1", FirstName = "test1" };
+            Employee employeeTest = new Employee() { LastName = "test1", FirstName = "test1" };
             await _EmployeesControllerUnderTest.Create(employeeTest);
             _db.Entry(employeeTest).State = System.Data.Entity.EntityState.Added;
 

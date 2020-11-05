@@ -28,7 +28,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrderDetailReturnsDetails()
         {
             //Arrage
-            Orders OrderTest = new Orders() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
+            Order OrderTest = new Order() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
             Order_Details detailsTest = new Order_Details() { ProductID = 20, UnitPrice = 23, Quantity = 12, Discount = 1, Order = OrderTest };
             await _detailsControllerUnderTest.Create(detailsTest, OrderTest.OrderID);
 
@@ -70,7 +70,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrderDetailReturnsCreateCreates()
         {
             //Arrange
-            Orders OrderTest = new Orders() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
+            Order OrderTest = new Order() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
             Order_Details detailsTest = new Order_Details() { ProductID = 17,UnitPrice=23,Quantity=12,Discount=1,Order=OrderTest};
            
             //Act
@@ -98,7 +98,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrderDetailReturnsEdit()
         {
             //Arrage
-            Orders OrderTest = new Orders() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
+            Order OrderTest = new Order() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
             Order_Details detailsTest = new Order_Details() { ProductID = 20, UnitPrice = 23, Quantity = 12, Discount = 1, Order = OrderTest };
             await _detailsControllerUnderTest.Create(detailsTest, OrderTest.OrderID);
 
@@ -124,7 +124,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrderDetailReturnsEditEdits()
         {
             //Arrange
-            Orders OrderTest = new Orders() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
+            Order OrderTest = new Order() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
             Order_Details detailsTest = new Order_Details() {ProductID = 20, UnitPrice = 23, Quantity = 12, Discount = 1,Order=OrderTest };
             await _detailsControllerUnderTest.Create(detailsTest,OrderTest.OrderID);
             db.Entry(detailsTest).State = System.Data.Entity.EntityState.Added;
@@ -163,7 +163,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrderDetailReturnsDelete()
         {
             //Arrange
-            Orders OrderTest = new Orders() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
+            Order OrderTest = new Order() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
             Order_Details detailsTest = new Order_Details() { ProductID = 17, UnitPrice = 23, Quantity = 12, Discount = 1 ,Order=OrderTest};
             await _detailsControllerUnderTest.Create(detailsTest,OrderTest.OrderID);
 
@@ -191,7 +191,7 @@ namespace UnitTestNorthwindWeb
         public async Task OrderDetailReturnsDeleteDeletes()
         {
             //Arrange
-            Orders OrderTest = new Orders() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
+            Order OrderTest = new Order() { OrderID = 22, CustomerID = "ALFKI", EmployeeID = 3 };
             Order_Details detailsTest = new Order_Details() { ProductID = 17, UnitPrice = 23, Quantity = 12, Discount = 1 ,Order=OrderTest};
             await _detailsControllerUnderTest.Create(detailsTest,OrderTest.OrderID);
             int expected = db.Order_Details.Count() - 1;

@@ -45,7 +45,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employees employees = await db.Employees.FindAsync(id);
+            Employee employees = await db.Employees.FindAsync(id);
             if (employees == null)
             {
                 return HttpNotFound();
@@ -74,7 +74,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>If successful returns employees index view, else goes back to form.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "EmployeeID,LastName,FirstName,Title,TitleOfCourtesy,BirthDate,HireDate,Address,City,Region,PostalCode,Country,HomePhone,Extension,Notes,ReportsTo")] Employees employees)
+        public async Task<ActionResult> Create([Bind(Include = "EmployeeID,LastName,FirstName,Title,TitleOfCourtesy,BirthDate,HireDate,Address,City,Region,PostalCode,Country,HomePhone,Extension,Notes,ReportsTo")] Employee employees)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employees employees = await db.Employees.FindAsync(id);
+            Employee employees = await db.Employees.FindAsync(id);
             if (employees == null)
             {
                 return HttpNotFound();
@@ -119,7 +119,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>Employees index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "EmployeeID,LastName,FirstName,Title,TitleOfCourtesy,BirthDate,HireDate,Address,City,Region,PostalCode,Country,HomePhone,Extension,Notes,ReportsTo")] Employees employees)
+        public async Task<ActionResult> Edit([Bind(Include = "EmployeeID,LastName,FirstName,Title,TitleOfCourtesy,BirthDate,HireDate,Address,City,Region,PostalCode,Country,HomePhone,Extension,Notes,ReportsTo")] Employee employees)
         {
             if (ModelState.IsValid)
             {
@@ -144,7 +144,7 @@ namespace NorthwindWeb.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Employees employees = await db.Employees.FindAsync(id);
+            Employee employees = await db.Employees.FindAsync(id);
 
             if (employees == null)
             {
@@ -164,7 +164,7 @@ namespace NorthwindWeb.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
 
-            Employees employees = await db.Employees.FindAsync(id);
+            Employee employees = await db.Employees.FindAsync(id);
             try
             {
                 if (employees.Orders.Any())

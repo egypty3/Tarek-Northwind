@@ -49,7 +49,7 @@ namespace NorthwindWeb.Controllers
             ////ViewBag.OrderID = new SelectList(db.Orders, "OrderID", "CustomerID");
             var productsOnOrder = db.Orders.Find(id).Order_Details.Select(od => od.Product).AsEnumerable();
             var productsNotOnOrder = db.Products.ToList();
-            foreach (Products product in productsOnOrder)
+            foreach (Product product in productsOnOrder)
                 productsNotOnOrder.Remove(product);
             ViewBag.ProductID = new SelectList(productsNotOnOrder, "ProductID", "ProductName");
             return View();

@@ -45,7 +45,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Suppliers suppliers = await db.Suppliers.FindAsync(id);
+            Supplier suppliers = await db.Suppliers.FindAsync(id);
             //if a vendor has been found
             if (suppliers == null)
             {
@@ -72,7 +72,7 @@ namespace NorthwindWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "SupplierID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax,HomePage")] Suppliers suppliers)
+        public async Task<ActionResult> Create([Bind(Include = "SupplierID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax,HomePage")] Supplier suppliers)
         {//if inputs data correspond to the model
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Suppliers suppliers = await db.Suppliers.FindAsync(id);
+            Supplier suppliers = await db.Suppliers.FindAsync(id);
             //if a vendor has been found
             if (suppliers == null)
             {
@@ -113,7 +113,7 @@ namespace NorthwindWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "SupplierID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax,HomePage")] Suppliers suppliers)
+        public async Task<ActionResult> Edit([Bind(Include = "SupplierID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax,HomePage")] Supplier suppliers)
         {//if inputs data correspond to the model
             if (ModelState.IsValid)
             {
@@ -135,7 +135,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Suppliers suppliers = await db.Suppliers.FindAsync(id);
+            Supplier suppliers = await db.Suppliers.FindAsync(id);
             //if a vendor has been found
             if (suppliers == null)
             {
@@ -155,7 +155,7 @@ namespace NorthwindWeb.Controllers
         {//if the supplier exists and can be deleted
             try
             {
-                Suppliers suppliers = await db.Suppliers.FindAsync(id);
+                Supplier suppliers = await db.Suppliers.FindAsync(id);
                 db.Suppliers.Remove(suppliers);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

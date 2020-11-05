@@ -61,7 +61,7 @@ namespace NorthwindWeb.ViewModels
         /// <summary>
         /// The category of this product
         /// </summary>
-        public virtual Categories Category { get; set; }
+        public virtual Category Category { get; set; }
         /// <summary>
         /// A list containing all the order details that this product is a part of.
         /// </summary>
@@ -69,7 +69,7 @@ namespace NorthwindWeb.ViewModels
         /// <summary>
         /// The Suppliers of this product.
         /// </summary>
-        public virtual Suppliers Supplier { get; set; }
+        public virtual Supplier Supplier { get; set; }
         /// <summary>
         /// The image of this product.
         /// </summary>

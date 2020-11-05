@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using NorthwindWeb.Models;
 using NorthwindWeb.Models.ServerClientCommunication;
 using Newtonsoft.Json.Linq;
-using NorthwindWeb.Models.ShopCart;
+using NorthwindWeb.Models.ShopCartNameSpace;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json;
 using Microsoft.AspNet.Identity;
@@ -66,7 +66,7 @@ namespace NorthwindWeb.Controllers
             {
                 if (!(db.ShopCart.Any(x => x.ProductID == id && x.UserName == User.Identity.Name)))
                 {
-                    ShopCarts cart = new ShopCarts() { UserName = User.Identity.Name, ProductID = id, Quantity = quantity, Products = db.Products.Find(id) };
+                    ShopCart cart = new ShopCart() { UserName = User.Identity.Name, ProductID = id, Quantity = quantity, Products = db.Products.Find(id) };
                     db.ShopCart.Add(cart);
                     db.SaveChanges();
                 }
@@ -134,7 +134,7 @@ namespace NorthwindWeb.Controllers
                         }
                         else
                         {
-                            db.ShopCart.Add(new ShopCarts() { ProductID = shopCartProduct.ID, Quantity = shopCartProduct.Quantity, UserName = User.Identity.Name });
+                            db.ShopCart.Add(new ShopCart() { ProductID = shopCartProduct.ID, Quantity = shopCartProduct.Quantity, UserName = User.Identity.Name });
                         }
                     }
                     db.SaveChanges();
@@ -339,7 +339,7 @@ namespace NorthwindWeb.Controllers
             {
                 string customerId = db.Customers.Where(c => c.ContactName == userName).Select(c => c.CustomerID).FirstOrDefault();
                 if (String.IsNullOrEmpty(customerId)) { return RedirectToAction("CreateCustomers", "ShopCart"); }
-                Orders order = new Orders()
+                Order order = new Order()
                 {
                     OrderID = db.Orders.Count() + 1,
                     CustomerID = customerId,
@@ -411,7 +411,7 @@ namespace NorthwindWeb.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateCustomers([Bind(Include = "CompanyName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax")] Customer customers)
+        public async Task<ActionResult> CreateCustomers([Bind(Include = "CompanyName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax")] ViewModels.Customer customers)
         {
             try
             {
@@ -423,10 +423,10 @@ namespace NorthwindWeb.Controllers
                 {
                     if (!String.IsNullOrEmpty(customers.Phone))
                     {
-                        Customers custom = new Customers()
+                        Models.Customer custom = new Models.Customer()
                         {
                             CustomerID = CustomerId(),
-                            CompanyName = String.IsNullOrEmpty(customers.CompanyName) ? "Persoana fizica" : customers.CompanyName,
+                            CompanyName = string.IsNullOrEmpty(customers.CompanyName) ? "Persoana fizica" : customers.CompanyName,
                             ContactName = User.Identity.GetUserName(),
                             ContactTitle = customers.ContactTitle,
                             Address = customers.Address,

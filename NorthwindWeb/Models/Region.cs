@@ -18,7 +18,7 @@ namespace NorthwindWeb.Models
         /// </summary>
         public Region()
         {
-            Territories = new HashSet<Territories>();
+            Territories = new HashSet<Territory>();
         }
 
         /// <summary>
@@ -37,6 +37,6 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// The region contains more territories.
         /// </summary>
-        public virtual ICollection<Territories> Territories { get; set; }
+        public virtual ICollection<Territory> Territories { get; set; }
     }
 }

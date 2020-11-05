@@ -7,32 +7,29 @@ namespace NorthwindWeb.Models
     using System.Data.Entity.Spatial;
 
     /// <summary>
-    /// The entity that holds all the information from the Customers table in the database.
+    /// The entity that holds all the information from the Suppliers table in the database.
     /// </summary>
-    public partial class Customers
+    public partial class Supplier
     {
 
         /// <summary>
-        /// Default constructor. Initialises new empty instances for Orders and CustomerDemographics..
+        /// Default constructor. Initialises new empty instances for Products.
         /// </summary>
-        public Customers()
+        public Supplier()
         {
-            Orders = new HashSet<Orders>();
-            CustomerDemographics = new HashSet<CustomerDemographics>();
+            Products = new HashSet<Product>();
         }
 
         /// <summary>
-        /// The id of the customer.
+        /// The id of the supplier.
         /// </summary>
         [Key]
-        [Required(ErrorMessage = "ID Client este obligatoriu.")]
-        [StringLength(5)]
-        public string CustomerID { get; set; }
+        public int SupplierID { get; set; }
 
         /// <summary>
-        /// The name of the company which is the customer.
+        /// The name of the company who is the supplier.
         /// </summary>
-        [Required(ErrorMessage ="Nume Companie este obligatoriu.")]
+        [Required]
         [StringLength(40)]
         public string CompanyName { get; set; }
 
@@ -49,55 +46,56 @@ namespace NorthwindWeb.Models
         public string ContactTitle { get; set; }
 
         /// <summary>
-        /// The adress of the customer.
+        /// The address of the supplier.
         /// </summary>
-        [StringLength(60)]
+        [StringLength(100)]
         public string Address { get; set; }
 
         /// <summary>
-        /// The customer's city.
+        /// The supplier's city.
         /// </summary>
         [StringLength(15)]
         public string City { get; set; }
 
         /// <summary>
-        /// The customer's region.
+        /// The supplier's region.
         /// </summary>
         [StringLength(15)]
         public string Region { get; set; }
 
         /// <summary>
-        /// The customer's postal code.
+        /// The supplier's postal code.
         /// </summary>
         [StringLength(10)]
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// The customer's country.
+        /// The supplier's country.
         /// </summary>
         [StringLength(15)]
         public string Country { get; set; }
 
         /// <summary>
-        /// The phone number of the customer.
+        /// The phone number of the supplier.
         /// </summary>
         [StringLength(24)]
         public string Phone { get; set; }
 
         /// <summary>
-        /// The fax of the customer.
+        /// The fax of the supplier.
         /// </summary>
         [StringLength(24)]
         public string Fax { get; set; }
 
         /// <summary>
-        /// The orders of the customer.
+        /// The supplier's web site.
         /// </summary>
-        public virtual ICollection<Orders> Orders { get; set; }
+        [Column(TypeName = "ntext")]
+        public string HomePage { get; set; }
 
         /// <summary>
-        /// The demography of the customer.
+        /// The products delivered by the supplier.
         /// </summary>
-        public virtual ICollection<CustomerDemographics> CustomerDemographics { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

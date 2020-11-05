@@ -5,7 +5,7 @@ using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace NorthwindWeb.Models.ShopCart
+namespace NorthwindWeb.Models.ShopCartNameSpace
 {
     /// <summary>
     /// Contains the response for shopcart from server

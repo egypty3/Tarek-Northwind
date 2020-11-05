@@ -86,7 +86,7 @@ namespace UnitTestNorthwindWeb
             var controller = new ProductController();
             var db = new NorthwindDatabase();
             int productCountBefore = db.Products.Count();
-            var product = new Products()
+            var product = new Product()
             {
                 CategoryID = 4,
                 ProductName = "TestProductCreate",
@@ -144,7 +144,7 @@ namespace UnitTestNorthwindWeb
             var controller = new ProductController();
             var db = new NorthwindDatabase();
             //create product
-            var product = new Products() { ProductName = "test", CategoryID = 1, SupplierID = 1};
+            var product = new Product() { ProductName = "test", CategoryID = 1, SupplierID = 1};
             db.Entry(product).State = System.Data.Entity.EntityState.Added;
             db.SaveChanges();
             //detach product from db
@@ -205,7 +205,7 @@ namespace UnitTestNorthwindWeb
             var controller = new ProductController();
             var db = new NorthwindDatabase();
             //create product
-            var product = new Products() { ProductName = "test", CategoryID = 1, SupplierID = 1 };
+            var product = new Product() { ProductName = "test", CategoryID = 1, SupplierID = 1 };
             db.Entry(product).State = System.Data.Entity.EntityState.Added;
             db.SaveChanges();
 

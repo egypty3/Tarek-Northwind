@@ -28,7 +28,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
+            Category categories = db.Categories.Find(id);
             if (categories == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace NorthwindWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryID,CategoryName,Description")] Categories categories)
+        public ActionResult Create([Bind(Include = "CategoryID,CategoryName,Description")] Category categories)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
+            Category categories = db.Categories.Find(id);
             if (categories == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace NorthwindWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Description")] Categories categories)
+        public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Description")] Category categories)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
+            Category categories = db.Categories.Find(id);
             if (categories == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace NorthwindWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Categories categories = db.Categories.Find(id);
+            Category categories = db.Categories.Find(id);
             db.Categories.Remove(categories);
             db.SaveChanges();
             return RedirectToAction("Index");

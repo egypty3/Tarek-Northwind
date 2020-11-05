@@ -45,7 +45,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customers customers = await db.Customers.FindAsync(id);
+            Models.Customer customers = await db.Customers.FindAsync(id);
             if (customers == null)
             {
                 return HttpNotFound();
@@ -86,10 +86,10 @@ namespace NorthwindWeb.Controllers
             
             if (ModelState.IsValid)
             {
-                Customers customer = new Customers()
+                Models.Customer customer = new Models.Customer()
                 {
                     CustomerID = CustomerId(),
-                    CompanyName =customers.CompanyName,
+                    CompanyName = customers.CompanyName,
                     ContactName = customers.ContactName,
                     ContactTitle = customers.ContactTitle,
                     Address = customers.Address,
@@ -122,7 +122,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customers customers = await db.Customers.FindAsync(id);
+            Models.Customer customers = await db.Customers.FindAsync(id);
             if (customers == null)
             {
                 return HttpNotFound();
@@ -139,7 +139,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>Customers index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "CustomerID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax")] Customers customers)
+        public async Task<ActionResult> Edit([Bind(Include = "CustomerID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,Fax")] Models.Customer customers)
         {
             if (ModelState.IsValid)
             {
@@ -161,7 +161,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customers customers = await db.Customers.FindAsync(id);
+            Models.Customer customers = await db.Customers.FindAsync(id);
             if (customers == null)
             {
                 return HttpNotFound();
@@ -181,7 +181,7 @@ namespace NorthwindWeb.Controllers
 
             try
             {
-                Customers customers = await db.Customers.FindAsync(id);
+                Models.Customer customers = await db.Customers.FindAsync(id);
                 if (customers.Orders.Any())
                     throw new DeleteException("The customer cannot be deleted because he has orders in the database.");
                 db.Customers.Remove(customers);

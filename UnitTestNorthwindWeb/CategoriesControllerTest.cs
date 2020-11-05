@@ -73,7 +73,7 @@ namespace UnitTestNorthwindWeb
         public async Task CategoryReturnsDetails()
         {
             //Arrage
-            Categories categoriesTest = new Categories() { CategoryName = "Accesorii" };
+            Category categoriesTest = new Category() { CategoryName = "Accesorii" };
             //Act
             var result = await _categoriesControllerTest.Details(categoriesTest.CategoryID) ;
             
@@ -106,7 +106,7 @@ namespace UnitTestNorthwindWeb
         public async Task CategoryCreate()
         {
             //Arrange
-            Categories CategoriesTest = new Categories() {CategoryID=14, CategoryName = "foto"};
+            Category CategoriesTest = new Category() {CategoryID=14, CategoryName = "foto"};
             //Act
             var expected = db.Categories.Count() + 1;
             await _categoriesControllerTest.Create(CategoriesTest);
@@ -130,7 +130,7 @@ namespace UnitTestNorthwindWeb
         public async Task CategoryDeleteReturnsView()
         {
             //Arrange
-            Categories categoriesTest = new Categories() { CategoryName = "foto"};
+            Category categoriesTest = new Category() { CategoryName = "foto"};
             await _categoriesControllerTest.Create(categoriesTest);
 
             //Act
@@ -151,7 +151,7 @@ namespace UnitTestNorthwindWeb
         public async System.Threading.Tasks.Task CategoryDeleteDeletes()
         {
             //Arrange
-            Categories categoriesTest = new Categories() { CategoryName = "foto", Description = "foto, video" };
+            Category categoriesTest = new Category() { CategoryName = "foto", Description = "foto, video" };
             await _categoriesControllerTest.Create(categoriesTest);
             int expected = db.Categories.Count() - 1;
 
@@ -171,7 +171,7 @@ namespace UnitTestNorthwindWeb
         public async Task CategoryEditEdits()
         {
             //Arrange
-            Categories categoriesTest = new Categories() { CategoryName = "foto" };
+            Category categoriesTest = new Category() { CategoryName = "foto" };
             await _categoriesControllerTest.Create(categoriesTest);
             db.Entry(categoriesTest).State = System.Data.Entity.EntityState.Added;
 

@@ -36,7 +36,7 @@ namespace NorthwindWeb.Controllers
             }
 
             //take details of Territory
-            Territories territories = await db.Territories.FindAsync(id);
+            Territory territories = await db.Territories.FindAsync(id);
             if (territories == null)
             {
                 return HttpNotFound();
@@ -62,7 +62,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>If successful returns territories index view, else goes back to form.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "TerritoryDescription")] Territories territories, int id)
+        public async Task<ActionResult> Create([Bind(Include = "TerritoryDescription")] Territory territories, int id)
         {
             territories.RegionID = id;
             if (db.Territories.Any())
@@ -98,7 +98,7 @@ namespace NorthwindWeb.Controllers
             //take details of Territory
             ViewBag.RegionsID = Convert.ToInt32(TempData["RegionID"]);
             TempData["RegionID"] = ViewBag.RegionsID;
-            Territories territories = await db.Territories.FindAsync(id);
+            Territory territories = await db.Territories.FindAsync(id);
             if (territories == null)
             {
                 return HttpNotFound();
@@ -115,7 +115,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>Territories index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "TerritoryID,TerritoryDescription,RegionID")] Territories territories)
+        public async Task<ActionResult> Edit([Bind(Include = "TerritoryID,TerritoryDescription,RegionID")] Territory territories)
         {
             if (ModelState.IsValid)
             {
@@ -141,7 +141,7 @@ namespace NorthwindWeb.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //take details of Territory
-            Territories territories = await db.Territories.FindAsync(id);
+            Territory territories = await db.Territories.FindAsync(id);
             if (territories == null)
             {
                 return HttpNotFound();
@@ -159,7 +159,7 @@ namespace NorthwindWeb.Controllers
         public async Task<ActionResult> DeleteConfirmed(string id)
         {
             //take details of Territory
-            Territories territories = await db.Territories.FindAsync(id);
+            Territory territories = await db.Territories.FindAsync(id);
             int idRegion = territories.RegionID;
             try
             {

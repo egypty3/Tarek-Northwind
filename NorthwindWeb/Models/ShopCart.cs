@@ -7,8 +7,8 @@
     /// <summary>
     /// The entity that holds all the information from the ShopCarts table in the database.
     /// </summary>
-    [Table("ShopCarts")]
-    public partial class ShopCarts
+    [Table("ShopCart")]
+    public partial class ShopCart
     {
         /// <summary>
         /// The name of the user who added a product in the shopcart
@@ -33,6 +33,6 @@
         /// <summary>
         /// The products contained by the shopcart
         /// </summary>
-        public virtual Products Products { get; set; }
+        public virtual Product Products { get; set; }
     }
 }

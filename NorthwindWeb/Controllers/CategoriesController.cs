@@ -45,7 +45,7 @@ namespace NorthwindWeb.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //take details of Categories
-            Categories categories = await db.Categories.FindAsync(id);
+            Category categories = await db.Categories.FindAsync(id);
             if (categories == null)
             {
                 return HttpNotFound();
@@ -69,7 +69,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>If successful returns categories index view, else goes back to form.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "CategoryID,CategoryName,Description")] Categories categories)
+        public async Task<ActionResult> Create([Bind(Include = "CategoryID,CategoryName,Description")] Category categories)
         {
             if (!ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace NorthwindWeb.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //take details of Categories
-            Categories categories = await db.Categories.FindAsync(id);
+            Category categories = await db.Categories.FindAsync(id);
             if (categories == null)
             {
                 return HttpNotFound();
@@ -113,7 +113,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>Categories index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "CategoryID,CategoryName,Description")] Categories categories)
+        public async Task<ActionResult> Edit([Bind(Include = "CategoryID,CategoryName,Description")] Category categories)
         {
             if (!ModelState.IsValid)
             {
@@ -142,7 +142,7 @@ namespace NorthwindWeb.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //take details of Categories
-            Categories categories = await db.Categories.FindAsync(id);
+            Category categories = await db.Categories.FindAsync(id);
             if (categories == null)
             {
                 return HttpNotFound();
@@ -160,7 +160,7 @@ namespace NorthwindWeb.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             //take details of Categories
-            Categories categories = await db.Categories.FindAsync(id);
+            Category categories = await db.Categories.FindAsync(id);
 
             try
             {

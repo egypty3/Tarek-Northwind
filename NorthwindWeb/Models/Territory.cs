@@ -9,14 +9,14 @@ namespace NorthwindWeb.Models
     /// <summary>
     /// The entity that contains information about territories, located in database.
     /// </summary>
-    public partial class Territories
+    public partial class Territory
     {
         /// <summary>
         /// Default constructor. Initialises new empty instances for Employees.
         /// </summary>
-        public Territories()
+        public Territory()
         {
-            Employees = new HashSet<Employees>();
+            Employees = new HashSet<Employee>();
         }
 
         /// <summary>
@@ -46,6 +46,6 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// The employees where work in a territory.
         /// </summary>
-        public virtual ICollection<Employees> Employees { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

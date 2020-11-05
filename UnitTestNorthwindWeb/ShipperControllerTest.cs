@@ -74,7 +74,7 @@ namespace UnitTestNorthwindWeb
         public async Task ShipperReturnsDetails()
         {
             //Arrage
-            Shippers shipperTest = new Shippers() { CompanyName = "FAN Courier" };
+            Shipper shipperTest = new Shipper() { CompanyName = "FAN Courier" };
             //Act
             var result = await _shippersControllerTest.Details(shipperTest.ShipperID);
 
@@ -107,7 +107,7 @@ namespace UnitTestNorthwindWeb
         public async Task ShipperCreate()
         {
             //Arrange
-            Shippers shipperTest = new Shippers() { ShipperID = 4, CompanyName = "Nero", Phone = "0240-555-555" };
+            Shipper shipperTest = new Shipper() { ShipperID = 4, CompanyName = "Nero", Phone = "0240-555-555" };
             //Act
             var expected = db.Shippers.Count() + 1;
             await _shippersControllerTest.Create(shipperTest);
@@ -132,7 +132,7 @@ namespace UnitTestNorthwindWeb
         public async Task ShipperDeleteReturnsView()
         {
             //Arrange
-            Shippers shipperTest = new Shippers() { CompanyName = "Nero", Phone = "0240-555-555" };
+            Shipper shipperTest = new Shipper() { CompanyName = "Nero", Phone = "0240-555-555" };
             await _shippersControllerTest.Create(shipperTest);
 
             //Act
@@ -157,7 +157,7 @@ namespace UnitTestNorthwindWeb
         public async Task ShipperDeleteDeletes()
         {
             //Arrange
-            Shippers shipperTest = new Shippers() { CompanyName = "Nero", Phone = "0240-555-555" };
+            Shipper shipperTest = new Shipper() { CompanyName = "Nero", Phone = "0240-555-555" };
             await _shippersControllerTest.Create(shipperTest);
             int expected = db.Shippers.Count() - 1;
 
@@ -177,7 +177,7 @@ namespace UnitTestNorthwindWeb
         public async Task ShipperEditEdits()
         {
             //Arrange
-            Shippers shipperTest = new Shippers() { CompanyName = "Express", Phone = "0240-111-111" };
+            Shipper shipperTest = new Shipper() { CompanyName = "Express", Phone = "0240-111-111" };
             await _shippersControllerTest.Create(shipperTest);
             db.Entry(shipperTest).State = System.Data.Entity.EntityState.Added;
 

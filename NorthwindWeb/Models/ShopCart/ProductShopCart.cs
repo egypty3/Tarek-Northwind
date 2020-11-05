@@ -5,7 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using NorthwindWeb.Context;
 
-namespace NorthwindWeb.Models.ShopCart
+namespace NorthwindWeb.Models.ShopCartNameSpace
 {
     /// <summary>
     /// contain basic info about shopcart

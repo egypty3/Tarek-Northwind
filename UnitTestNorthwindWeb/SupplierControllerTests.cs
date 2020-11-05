@@ -40,7 +40,7 @@ namespace UnitTestNorthwindWeb
             var controller = new NorthwindWeb.Controllers.SuppliersController();
             var db = new NorthwindDatabase();
             int SuppliersCountBefore = db.Suppliers.Count();
-            var Suppliers = new Suppliers()
+            var Suppliers = new Supplier()
             {
                 CompanyName = "TestSuppliersCreate",
                 ContactName = "contact",
@@ -91,7 +91,7 @@ namespace UnitTestNorthwindWeb
             var controller = new NorthwindWeb.Controllers.SuppliersController();
             var db = new NorthwindDatabase();
             //create Suppliers
-            var Suppliers = new Suppliers()
+            var Suppliers = new Supplier()
             {
                 CompanyName = "TestSuppliersCreate",
                 ContactName = "contact",
@@ -158,7 +158,7 @@ namespace UnitTestNorthwindWeb
             var controller = new NorthwindWeb.Controllers.SuppliersController();
             var db = new NorthwindDatabase();
             //create Suppliers
-            var Suppliers = new Suppliers()
+            var Suppliers = new Supplier()
             {
                 CompanyName = "TestSuppliersCreate",
                 ContactName = "contact",

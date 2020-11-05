@@ -8,12 +8,12 @@ namespace NorthwindWeb.Models
     /// <summary>
     /// The entity that holds all the information from the products table in the database.
     /// </summary>
-    public partial class Products
+    public partial class Product
     {
         /// <summary>
         /// Default constructor. Initialises new empty instances for Orders Details.
         /// </summary>
-        public Products()
+        public Product()
         {
             Order_Details = new HashSet<Order_Details>();
         }
@@ -65,7 +65,7 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// The category of this product
         /// </summary>
-        public virtual Categories Category { get; set; }
+        public virtual Category Category { get; set; }
         /// <summary>
         /// A list containing all the order details that this product is a part of.
         /// </summary>
@@ -73,6 +73,6 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// The Suppliers of this product.
         /// </summary>
-        public virtual Suppliers Supplier { get; set; }
+        public virtual Supplier Supplier { get; set; }
     }
 }

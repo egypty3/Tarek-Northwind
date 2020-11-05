@@ -177,7 +177,7 @@ namespace UnitTestNorthwindWeb
         public async Task CustomersReturnsEditEdits()
         {
             //Arrange
-            var expectedCustomer = new Customers() {CustomerID="ZZZZZ", CompanyName = "test" };
+            var expectedCustomer = new NorthwindWeb.Models.Customer() { CustomerID = "ZZZZZ", CompanyName = "test" };
             db.Customers.Add(expectedCustomer);
             db.SaveChanges();
             db.Entry(expectedCustomer).State = System.Data.Entity.EntityState.Added;

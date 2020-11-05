@@ -49,7 +49,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Products products = await db.Products.FindAsync(id);
+            Product products = await db.Products.FindAsync(id);
             if (products == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace NorthwindWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued")] Products products, HttpPostedFileBase ProductImage)
+        public async Task<ActionResult> Create([Bind(Include = "ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued")] Product products, HttpPostedFileBase ProductImage)
         {
             try
             {
@@ -134,7 +134,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Products products = await db.Products.FindAsync(id);
+            Product products = await db.Products.FindAsync(id);
             if (products == null)
             {
                 return HttpNotFound();
@@ -154,7 +154,7 @@ namespace NorthwindWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued")] Products products, HttpPostedFileBase ProductImage)
+        public async Task<ActionResult> Edit([Bind(Include = "ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued")] Product products, HttpPostedFileBase ProductImage)
         {
             try
             {
@@ -214,7 +214,7 @@ namespace NorthwindWeb.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Products products = await db.Products.FindAsync(id);
+            Product products = await db.Products.FindAsync(id);
             if (products == null)
             {
                 return HttpNotFound();
@@ -234,7 +234,7 @@ namespace NorthwindWeb.Controllers
         {
             try
             {
-                Products products = await db.Products.FindAsync(id);
+                Product products = await db.Products.FindAsync(id);
                 db.Products.Remove(products);
                 await db.SaveChangesAsync();
 
@@ -304,7 +304,7 @@ namespace NorthwindWeb.Controllers
                     sortDirection = Request.QueryString["order[0][dir]"];
                 }
 
-                IQueryable<Products> products;
+                IQueryable<Product> products;
                 //try to parse search to int
                 try
                 {

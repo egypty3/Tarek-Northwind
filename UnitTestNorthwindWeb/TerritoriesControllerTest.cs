@@ -38,7 +38,7 @@ namespace UnitTestNorthwindWeb
         public async Task TerritoryReturnsDetails()
         {
             //Arrage
-            Territories territoryTest = new Territories() { TerritoryDescription = "Timis" };
+            Territory territoryTest = new Territory() { TerritoryDescription = "Timis" };
             //Act
             var result = await _territoriesControllerTest.Details(territoryTest.TerritoryID);
 
@@ -74,7 +74,7 @@ namespace UnitTestNorthwindWeb
         {
             //Arrange
             Region regionTest = new Region() { RegionID = 100, RegionDescription = "test" };
-            Territories territoryTest = new Territories() { TerritoryID = "102", TerritoryDescription = "Acasa", Region = regionTest };
+            Territory territoryTest = new Territory() { TerritoryID = "102", TerritoryDescription = "Acasa", Region = regionTest };
             
             //Act
             var expected = db.Territories.Count() + 1;
@@ -104,7 +104,7 @@ namespace UnitTestNorthwindWeb
         {
             //Arrange
             Region regionTest = new Region() { RegionID = 100, RegionDescription = "test" };
-            Territories territoryTest = new Territories() { TerritoryID = "102", TerritoryDescription = "Acasa", Region = regionTest };
+            Territory territoryTest = new Territory() { TerritoryID = "102", TerritoryDescription = "Acasa", Region = regionTest };
             await _territoriesControllerTest.Create(territoryTest, regionTest.RegionID);
 
             //Act
@@ -130,7 +130,7 @@ namespace UnitTestNorthwindWeb
         {
             //Arrange
             Region regionTest = new Region() { RegionID = 88,RegionDescription="test" };
-            Territories territoryTest = new Territories() {TerritoryID="102", TerritoryDescription = "Acasa",Region=regionTest };
+            Territory territoryTest = new Territory() {TerritoryID="102", TerritoryDescription = "Acasa",Region=regionTest };
             await _territoriesControllerTest.Create(territoryTest,regionTest.RegionID);
             int expected = db.Territories.Count() - 1;
 
@@ -158,7 +158,7 @@ namespace UnitTestNorthwindWeb
         {
             //Arrange
             Region regionTest = new Region() { RegionID = 100, RegionDescription = "test" };
-            Territories territoryTest = new Territories() { TerritoryID="102", TerritoryDescription = "Aici",Region=regionTest };
+            Territory territoryTest = new Territory() { TerritoryID="102", TerritoryDescription = "Aici",Region=regionTest };
             await _territoriesControllerTest.Create(territoryTest,regionTest.RegionID);
             db.Entry(territoryTest).State = System.Data.Entity.EntityState.Added;
 

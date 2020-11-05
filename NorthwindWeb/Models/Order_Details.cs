@@ -47,11 +47,11 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// The order of the order-detail.
         /// </summary>
-        public virtual Orders Order { get; set; }
+        public virtual Order Order { get; set; }
 
         /// <summary>
         /// The product of the order-detail.
         /// </summary>
-        public virtual Products Product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

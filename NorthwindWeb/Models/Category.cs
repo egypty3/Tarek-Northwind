@@ -9,14 +9,14 @@ namespace NorthwindWeb.Models
     /// <summary>
     /// The entity that contains information about categories, located in database.
     /// </summary>
-    public partial class Categories
+    public partial class Category
     {
         /// <summary>
         /// Default constructor. Initialises new empty instances for Products.
         /// </summary>
-        public Categories()
+        public Category()
         {
-            Products = new HashSet<Products>();
+            Products = new HashSet<Product>();
         }
 
         /// <summary>
@@ -41,6 +41,6 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// A category may contains more products.
         /// </summary>
-        public virtual ICollection<Products> Products { get;  }
+        public virtual ICollection<Product> Products { get;  }
     }
 }

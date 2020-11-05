@@ -46,7 +46,7 @@ namespace NorthwindWeb.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //take details of Shipper
-            Shippers shippers = await db.Shippers.FindAsync(id);
+            Shipper shippers = await db.Shippers.FindAsync(id);
             if (shippers == null)
             {
                 return HttpNotFound();
@@ -70,7 +70,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>If successful returns shippers index view, else goes back to form.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ShipperID,CompanyName,Phone")] Shippers shippers)
+        public async Task<ActionResult> Create([Bind(Include = "ShipperID,CompanyName,Phone")] Shipper shippers)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace NorthwindWeb.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //take details of Shipper
-            Shippers shippers = await db.Shippers.FindAsync(id);
+            Shipper shippers = await db.Shippers.FindAsync(id);
             if (shippers == null)
             {
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace NorthwindWeb.Controllers
         /// <returns>Shippers index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ShipperID,CompanyName,Phone")] Shippers shippers)
+        public async Task<ActionResult> Edit([Bind(Include = "ShipperID,CompanyName,Phone")] Shipper shippers)
         {
             if (ModelState.IsValid)
             {
@@ -132,7 +132,7 @@ namespace NorthwindWeb.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //take details of Shipper
-            Shippers shippers = await db.Shippers.FindAsync(id);
+            Shipper shippers = await db.Shippers.FindAsync(id);
             if (shippers == null)
             {
                 return HttpNotFound();
@@ -150,7 +150,7 @@ namespace NorthwindWeb.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             //take details of Shipper
-            Shippers shippers = await db.Shippers.FindAsync(id);
+            Shipper shippers = await db.Shippers.FindAsync(id);
             
             try 
             {

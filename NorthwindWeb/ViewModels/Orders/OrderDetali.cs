@@ -14,7 +14,7 @@ namespace NorthwindWeb.ViewModels.Orders
         /// <summary>
         /// Display the order. 
         /// </summary>
-        public Models.Orders Order { get; set; }
+        public Models.Order Order { get; set; }
 
         /// <summary>
         /// Dispay the details of the order.

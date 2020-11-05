@@ -40,7 +40,7 @@ namespace UnitTestNorthwindWeb
             //Arrange
             var controller = new NorthwindWeb.Controllers.ContactController();
             var db = new NorthwindDatabase();
-            NorthwindWeb.Models.Persons person = new NorthwindWeb.Models.Persons()
+            NorthwindWeb.Models.Person person = new NorthwindWeb.Models.Person()
             {
             ID = db.Persons.Count() + 1,
             FirstName = "test1223",

@@ -9,15 +9,15 @@ namespace NorthwindWeb.Models
     /// <summary>
     /// The entity that contains information about shippers, located in database.
     /// </summary>
-    public partial class Shippers
+    public partial class Shipper
     {
 
         /// <summary>
         ///  Default constructor. Initialises new empty instances for Orders.
         /// </summary>
-        public Shippers()
+        public Shipper()
         {
-            Orders = new HashSet<Orders>();
+            Orders = new HashSet<Order>();
         }
 
 
@@ -44,6 +44,6 @@ namespace NorthwindWeb.Models
         /// <summary>
         /// The shipper which contains more orders.
         /// </summary>
-        public virtual ICollection<Orders> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
