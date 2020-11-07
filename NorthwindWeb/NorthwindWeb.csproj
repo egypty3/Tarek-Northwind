@@ -482,6 +482,7 @@
     <Content Include="ClassDiagram1.cd" />
     <Content Include="ClassDiagram2.cd" />
     <Content Include="ClassDiagram3.cd" />
+    <Content Include="ClassDiagram4.cd" />
     <None Include="Scripts\jquery-1.7-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.js" />
     <Content Include="Scripts\jquery-1.7.min.js" />
@@ -494,15 +495,6 @@
     <Content Include="Scripts\product.js" />
     <Content Include="Scripts\reports.js" />
     <Content Include="Scripts\respond.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -551,6 +543,13 @@
     <Content Include="Views\CategoriesDummy\Details.cshtml" />
     <Content Include="Views\CategoriesDummy\Edit.cshtml" />
     <Content Include="Views\CategoriesDummy\Index.cshtml" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Categories\Create.cshtml" />
