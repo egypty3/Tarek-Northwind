@@ -220,6 +220,10 @@
     <Compile Include="Migrations\202010041234569_initialmigration.Designer.cs">
       <DependentUpon>202010041234569_initialmigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012121246428_latestModification.cs" />
+    <Compile Include="Migrations\202012121246428_latestModification.Designer.cs">
+      <DependentUpon>202012121246428_latestModification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -583,6 +587,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202010041234569_initialmigration.resx">
       <DependentUpon>202010041234569_initialmigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012121246428_latestModification.resx">
+      <DependentUpon>202012121246428_latestModification.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
