@@ -487,6 +487,7 @@
     <Content Include="ClassDiagram2.cd" />
     <Content Include="ClassDiagram3.cd" />
     <Content Include="ClassDiagram4.cd" />
+    <Content Include="ClassDiagram5.cd" />
     <None Include="Scripts\jquery-1.7-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.js" />
     <Content Include="Scripts\jquery-1.7.min.js" />
