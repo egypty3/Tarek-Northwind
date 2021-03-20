@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="NorthwindWeb.Models.Product">
     <Position X="5" Y="0.5" Width="1.5" />
@@ -9,3 +10,6 @@
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
+=======
+<ClassDiagram /> 
+>>>>>>> f0a022b1883b55e998dd5b6def0769e7fbae7d66

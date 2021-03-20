@@ -114,12 +114,12 @@ namespace NorthwindWeb.Controllers
             catch (ArgumentException e)
             {
                 logger.Error(e.ToString());
-                throw new ArgumentException("Fisierul ales nu este o imagine");
+                throw new ArgumentException("The selected file is not an image");
             }
             catch (Exception e)
             {
                 logger.Error(e.ToString());
-                throw new Exception("Ceva nu a mers bine, va rugam reincercati. Daca problema persista contactati un administrator.");
+                throw new Exception("Something went wrong, please try again. If the problem persists, contact an administrator.");
             }
         }
 
@@ -182,23 +182,23 @@ namespace NorthwindWeb.Controllers
             catch (NullReferenceException e)
             {
                 logger.Error(e.ToString());
-                throw new NullReferenceException("Imaginea nu a putut fi gasita");
+                throw new NullReferenceException("The image could not be found");
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException e)
             {
                 logger.Error(e.ToString());
-                throw new System.Data.Entity.Infrastructure.DbUpdateException("Nu s-au putut efectua modificatile");
+                throw new System.Data.Entity.Infrastructure.DbUpdateException("The changes could not be made");
             }
             catch (ArgumentException e)
             {
                 logger.Error(e.ToString());
-                throw new ArgumentException("Fisierul ales nu este o imagine");
+                throw new ArgumentException("The selected file is not an image");
             }
             catch (Exception e)
             {
                 //if something else goes wrong
                 logger.Error(e.ToString());
-                throw new Exception("Ceva nu a mers bine, va rugam reincercati. Daca problema persista contactati un administrator.");
+                throw new Exception("Something went wrong, please try again. If the problem persists, contact an administrator.");
             }
         }
 
@@ -244,7 +244,7 @@ namespace NorthwindWeb.Controllers
             {
                 //missing file or directory
                 logger.Error(e.ToString());
-                throw new NullReferenceException("Imaginea nu a putut fi gasita.");
+                throw new NullReferenceException("The image could not be found.");
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException e)
             {
@@ -255,7 +255,8 @@ namespace NorthwindWeb.Controllers
                 {
                     listOrders = i.OrderID + ", ";
                 }
-                throw new DeleteException("Acest produs nu a putut fi sters deoarece se afla pe urmatoarele comenzi: " + listOrders + " .Ia in considerare si varianta de a-l face indisponibil");
+                throw new DeleteException("This product could not be deleted because it is on the following orders: " + listOrders 
+                    + " .Consider the option of making it unavailable");
             }
             catch (Exception e)
             {

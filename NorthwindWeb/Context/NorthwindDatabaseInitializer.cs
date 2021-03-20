@@ -37,7 +37,7 @@ namespace NorthwindWeb.Context
             base.Seed(context);
         }
 
-        private void InsertInDatabase(NorthwindDatabase context)
+        public void InsertInDatabase(NorthwindDatabase context)
         {
             NorthwindReferencedTableInitializer.InsertNorthwindReferencedData(context);
             NorthwindTestDatabaseInitializer.InsertNorthwindTestData(context);

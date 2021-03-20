@@ -17,6 +17,8 @@ namespace NorthwindWeb.Context
             : base("name=NorthwindDatabaseConnection") // name in web.config of Connection string.
         {
             Database.SetInitializer(new NorthwindDatabaseInitializer());
+            //(new NorthwindDatabaseInitializer()).InsertInDatabase(this);
+
         }
 
 
