@@ -262,7 +262,7 @@ namespace NorthwindWeb.Controllers
             {
                 //if something else goes wrong
                 logger.Error(e.ToString());
-                throw new Exception("Ceva nu a mers bine, va rugam reincercati. Daca problema persista contactati un administrator.");
+                throw new Exception("Something went wrong, please try again. If the problem persists, contact an administrator.");
             }
             return RedirectToAction("Index", "Product", new { category = HttpUtility.ParseQueryString(Request.UrlReferrer.Query)["category"] ?? "", search = HttpUtility.ParseQueryString(Request.UrlReferrer.Query)["search"] ?? "" });
         }
@@ -419,7 +419,7 @@ namespace NorthwindWeb.Controllers
                 {
                     draw = draw,
                     recordsTotal = db.Products.Count(),
-                    error = "Ceva nu a mers bine",
+                    error = "Something went wrong",
                     recordsFiltered = 0
                 }, JsonRequestBehavior.AllowGet);
             }
