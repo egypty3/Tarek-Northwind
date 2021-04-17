@@ -1,5 +1,6 @@
 ﻿body {
     font-family: Tahoma;
+    background-color: #2b3e50;
 }
 /*products images*/
 img[class~=products] {
@@ -205,4 +206,16 @@ iframe.fill {
 }
 .error-message{
     padding-top:10px;
+}
+.navbar-inverse {
+    background-color: #df691a;
+    border-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ebebeb;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #ebebeb;
 }

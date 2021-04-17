@@ -18,37 +18,37 @@
         <ul class="dropdown-menu">
             @if (userManager.IsInRole(User.Identity.GetUserId(), "Managers") || userManager.IsInRole(User.Identity.GetUserId(), "Admins"))
             {
-                <li id="dashboard">
-                    @Html.ActionLink("Dashboard", "Home", "Dashboard")
+                <li id="dashboard" class="nav-item">
+                    @Html.ActionLink("Dashboard", "Home", "Dashboard",null, new { @class = "nav-link" })
                 </li>
             }
-            <li>
-                @Html.ActionLink("Manage", "Index", "Manage")
+            <li  class="nav-item">
+                @Html.ActionLink("Manage", "Index", "Manage", null, new { @class = "nav-link" })
             </li>
             @if (userManager.IsInRole(User.Identity.GetUserId(), "Managers")|| userManager.IsInRole(User.Identity.GetUserId(), "Admins"))
             {
-                <li id="orders">
-                    @Html.ActionLink("Order List", "HomeAdmin", "Order")
+                <li id="orders"  class="nav-item">
+                    @Html.ActionLink("Order List", "HomeAdmin", "Order", null, new { @class = "nav-link" })
                 </li>
             }
             @if (userManager.IsInRole(User.Identity.GetUserId(), "Employees"))
             {
-                <li id="userOrders">
-                    @Html.ActionLink("Assigned commands", "Home", "Order")
+                <li id="userOrders"  class="nav-item">
+                    @Html.ActionLink("Assigned commands", "Home", "Order", null, new { @class = "nav-link" })
                 </li>
             }
             @if (userManager.IsInRole(User.Identity.GetUserId(), "Customers"))
             {
-                <li id="userOrders">
-                    @Html.ActionLink("'" + User.Identity.GetUserName() + "' Orders", "HomeCustomers", "Order")
+                <li id="userOrders"  class="nav-item">
+                    @Html.ActionLink("'" + User.Identity.GetUserName() + "' Orders", "HomeCustomers", "Order", null, new { @class = "nav-link" })
                 </li>
             }
         </ul>
     </li>
-    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+    <li class="nav-item"><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link">Log out</a></li>
 }
 else
 {
-    <li>@Html.ActionLink("New user", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    <li class="nav-item">@Html.ActionLink("New user", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class="nav-link" })</li>
+    <li class="nav-item">@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
 }
